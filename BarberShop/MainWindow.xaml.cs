@@ -68,9 +68,8 @@ namespace BarberShop
         private void ClearNew_Click(object sender, RoutedEventArgs e)
         {
             TxtBoxCustomerNew.Text = "";
+            cmbBoxHaircut.SelectedIndex = -1;
             TxtBoxPriceNew.Text = "";
-            cmbBoxHaircut.SelectedIndex = 0;
-            
         }
 
         private void AddNew_Click(object sender, RoutedEventArgs e)
@@ -99,7 +98,10 @@ namespace BarberShop
 
         private void cmbBoxHaircut_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TxtBoxPriceNew.Text = ((Haircut)cmbBoxHaircut.SelectedItem).price.ToString();
+            if (cmbBoxHaircut.SelectedIndex != -1)
+            {
+                TxtBoxPriceNew.Text = ((Haircut)cmbBoxHaircut.SelectedItem).price.ToString();
+            }
         }
     }
 }

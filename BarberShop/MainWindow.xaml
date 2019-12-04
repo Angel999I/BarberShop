@@ -44,7 +44,12 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="CustomersView" HorizontalAlignment="Left" Height="376" VerticalAlignment="Top" Width="571" Margin="0,41,0,0"/>
+                    <DataGrid x:Name="CustomersView" HorizontalAlignment="Left" Height="376" AutoGenerateColumns="False" VerticalAlignment="Top" Width="571" Margin="0,41,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding name}" Header="Name"/>
+                            <DataGridTextColumn Binding="{Binding address}" Header="Address"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="97,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <Button Content="Search" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
                     <Button x:Name="DelCustomerButton" Content="Delete" HorizontalAlignment="Left" Margin="486,10,0,0" VerticalAlignment="Top" Width="75" Click="DelCustomerButton_Click"/>
