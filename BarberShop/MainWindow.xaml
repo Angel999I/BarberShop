@@ -12,7 +12,7 @@
                 <Grid Background="#FFE5E5E5" Margin="0,2,0,-2">
                     <Label Content="Customer:" HorizontalAlignment="Left" Margin="60,60,0,0" VerticalAlignment="Top" Width="76" FontFamily="Roboto"/>
                     <Label Content="Date:" HorizontalAlignment="Left" Margin="60,120,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
-                    <TextBox x:Name="TxtBoxCustomerNew" HorizontalAlignment="Left" Height="23" Margin="65,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Roboto"/>
+                    <TextBox x:Name="TxtBoxCustomerNew" HorizontalAlignment="Left" Height="23" Margin="65,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Roboto" IsEnabled="False"/>
                     <Label Content="Haircut Type:" HorizontalAlignment="Left" Margin="60,181,0,0" VerticalAlignment="Top" Width="90" FontFamily="Roboto"/>
                     <Label Content="Price:" HorizontalAlignment="Left" Margin="60,241,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
                     <TextBox x:Name="TxtBoxPriceNew" HorizontalAlignment="Left" Height="23" Margin="65,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Roboto"/>
