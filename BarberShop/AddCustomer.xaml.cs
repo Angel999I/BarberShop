@@ -20,6 +20,7 @@ namespace BarberShop
     public partial class AddCustomer : Window
     {
         Controller cont = new Controller();
+        string name;
         public AddCustomer()
         {
             InitializeComponent();
@@ -30,11 +31,18 @@ namespace BarberShop
             Close();
         }
 
+        public string GetName()
+        {
+            return name;
+        }
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             try
             {
                 cont.AddCustomer(Name.Text, Address.Text);
+                name = Name.Text;
+                Close();
             }
             catch(ArgumentException a)
             {
@@ -45,7 +53,7 @@ namespace BarberShop
                 MessageBox.Show("Unexpected error: " + a.Message, "", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            Close();
+            
         }
     }
 }

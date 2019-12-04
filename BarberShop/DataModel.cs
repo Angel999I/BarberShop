@@ -39,5 +39,17 @@ namespace BarberShop
         {
             return db.Customers.ToList();
         }
+
+        public List<TimeTable> GetTimeTable()
+        {
+            return db.TimeTables.ToList();
+        }
+
+        public void DeleteCustomer(Customer c)
+        {
+            db.Customers.Remove(c);
+
+            db.SaveChanges();
+        }
     }
 }

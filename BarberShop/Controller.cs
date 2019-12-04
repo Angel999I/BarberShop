@@ -21,5 +21,15 @@ namespace BarberShop
         {
             return model.GetCustomers();
         }
+
+        public List<TimeTable> GetTimeTable()
+        {
+            return model.GetTimeTable();
+        }
+
+        public void DeleteCustomer(Customer c)
+        {
+            model.DeleteCustomer(c);
+        }
     }
 }
