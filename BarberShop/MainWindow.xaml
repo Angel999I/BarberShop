@@ -15,7 +15,6 @@
                     <TextBox x:Name="TxtBoxCustomerNew" HorizontalAlignment="Left" Height="23" Margin="65,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Roboto"/>
                     <Label Content="Haircut Type:" HorizontalAlignment="Left" Margin="60,181,0,0" VerticalAlignment="Top" Width="90" FontFamily="Roboto"/>
                     <Label Content="Price:" HorizontalAlignment="Left" Margin="60,241,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
-                    <TextBox x:Name="txtBoxType" HorizontalAlignment="Left" Height="23" Margin="65,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Roboto"/>
                     <TextBox x:Name="TxtBoxPriceNew" HorizontalAlignment="Left" Height="23" Margin="65,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Roboto"/>
                     <Button Content="Find" HorizontalAlignment="Left" Margin="160,60,0,0" VerticalAlignment="Top" Width="45"/>
                     <Button x:Name="NewCustomer1" Content="New" HorizontalAlignment="Left" Margin="209,60,0,0" VerticalAlignment="Top" Width="45" Click="NewCustomer_Click"/>
@@ -29,6 +28,7 @@
                             </Style>
                         </DatePicker.Resources>
                     </DatePicker>
+                    <ComboBox x:Name="cmbBoxHaircut" HorizontalAlignment="Left" Margin="65,206,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="cmbBoxHaircut_SelectionChanged"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Order" FontSize="14">

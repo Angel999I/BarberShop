@@ -27,6 +27,11 @@ namespace BarberShop
             return model.GetTimeTable();
         }
 
+        public List<Haircut> GetHaircuts()
+        {
+            return model.GetHaircuts();
+        }
+
         public void DeleteCustomer(Customer c)
         {
             model.DeleteCustomer(c);
