@@ -87,6 +87,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel.cs" />
+    <Compile Include="FindCustomer.xaml.cs">
+      <DependentUpon>FindCustomer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Haircut.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Page Include="AddCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FindCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

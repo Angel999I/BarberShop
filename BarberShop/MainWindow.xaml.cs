@@ -20,6 +20,9 @@ namespace BarberShop
     /// </summary>
     public partial class MainWindow : Window
     {
+        Customer customerNew;
+        Customer customerOrder;
+
         Controller cont = new Controller();
         public MainWindow()
         {
@@ -72,22 +75,15 @@ namespace BarberShop
             TxtBoxPriceNew.Text = "";
         }
 
-        private void AddNew_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void NewCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            TxtBoxCustomerNew.Text = ShowNewCustomerWindow();
-        }
-
-        public string ShowNewCustomerWindow()
         {
             AddCustomer win = new AddCustomer();
             win.ShowDialog();
-            CustomersView.ItemsSource = cont.GetCustomers();
-            return win.GetName();
+            UpdateCustomersView();
+            customerNew = win.GetCustomer();
+
+            if (customerNew != null)
+                TxtBoxCustomerNew.Text = customerNew.name;
         }
 
         private void DelCustomerButton_Click(object sender, RoutedEventArgs e)
@@ -102,6 +98,23 @@ namespace BarberShop
             {
                 TxtBoxPriceNew.Text = ((Haircut)cmbBoxHaircut.SelectedItem).price.ToString();
             }
+        }
+
+        private void btnFindCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            FindCustomer win = new FindCustomer();
+            win.ShowDialog();
+            UpdateCustomersView();
+            customerNew = win.GetCustomer();
+
+            if (customerNew!=null)
+                TxtBoxCustomerNew.Text = customerNew.name;
+
+        }
+
+        private void AddNew_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

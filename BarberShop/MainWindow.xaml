@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="479" Width="585">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="448" VerticalAlignment="Top" Width="577">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="448" VerticalAlignment="Top" Width="577">
             <TabItem Header="New" FontSize="14">
                 <Grid Background="#FFE5E5E5" Margin="0,2,0,-2">
                     <Label Content="Customer:" HorizontalAlignment="Left" Margin="60,60,0,0" VerticalAlignment="Top" Width="76" FontFamily="Roboto"/>
@@ -16,7 +16,7 @@
                     <Label Content="Haircut Type:" HorizontalAlignment="Left" Margin="60,181,0,0" VerticalAlignment="Top" Width="90" FontFamily="Roboto"/>
                     <Label Content="Price:" HorizontalAlignment="Left" Margin="60,241,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
                     <TextBox x:Name="TxtBoxPriceNew" HorizontalAlignment="Left" Height="23" Margin="65,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Roboto"/>
-                    <Button Content="Find" HorizontalAlignment="Left" Margin="160,60,0,0" VerticalAlignment="Top" Width="45"/>
+                    <Button x:Name="btnFindCustomer" Content="Find" HorizontalAlignment="Left" Margin="160,60,0,0" VerticalAlignment="Top" Width="45" Click="btnFindCustomer_Click"/>
                     <Button x:Name="NewCustomer1" Content="New" HorizontalAlignment="Left" Margin="209,60,0,0" VerticalAlignment="Top" Width="45" Click="NewCustomer_Click"/>
                     <Button x:Name="AddNew" Content="Add" HorizontalAlignment="Left" Margin="65,323,0,0" VerticalAlignment="Top" Width="75" Click="AddNew_Click"/>
                     <Button x:Name="ClearNew" Content="Clear All" HorizontalAlignment="Left" Margin="179,323,0,0" VerticalAlignment="Top" Width="75" Click="ClearNew_Click"/>

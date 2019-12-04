@@ -20,7 +20,7 @@ namespace BarberShop
     public partial class AddCustomer : Window
     {
         Controller cont = new Controller();
-        string name;
+        private Customer customer;
         public AddCustomer()
         {
             InitializeComponent();
@@ -31,9 +31,9 @@ namespace BarberShop
             Close();
         }
 
-        public string GetName()
+        public Customer GetCustomer()
         {
-            return name;
+            return customer;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -41,7 +41,11 @@ namespace BarberShop
             try
             {
                 cont.AddCustomer(Name.Text, Address.Text);
-                name = Name.Text;
+                customer = new Customer();
+
+                customer.name = Name.Text;
+                customer.address = Address.Text;
+
                 Close();
             }
             catch(ArgumentException a)

@@ -23,17 +23,7 @@ namespace BarberShop
             }
         }
 
-        public void AddCustomer(string name, string address)
-        {
-
-            Customer c = new Customer();
-            c.name = name;
-            c.address = address;
-
-            db.Customers.Add(c);
-
-            db.SaveChanges();
-        }
+        #region Get DB Tables as list
 
         public List<Customer> GetCustomers()
         {
@@ -48,6 +38,20 @@ namespace BarberShop
         public List<Haircut> GetHaircuts()
         {
             return db.Haircuts.ToList();
+        }
+
+        #endregion
+
+        public void AddCustomer(string name, string address)
+        {
+
+            Customer c = new Customer();
+            c.name = name;
+            c.address = address;
+
+            db.Customers.Add(c);
+
+            db.SaveChanges();
         }
 
         public void DeleteCustomer(Customer c)
