@@ -15,11 +15,12 @@ namespace BarberShop
     public partial class Order
     {
         public int Id { get; set; }
-        public int customer { get; set; }
+        public int customer_id { get; set; }
+        public int product_id { get; set; }
         public System.DateTime date { get; set; }
-        public int product { get; set; }
+        public double price { get; set; }
     
-        public virtual Customer Customer1 { get; set; }
-        public virtual Product Product1 { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

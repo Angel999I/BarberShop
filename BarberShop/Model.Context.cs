@@ -25,10 +25,15 @@ namespace BarberShop
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AdditionalCost> AdditionalCosts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Haircut> Haircuts { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<SupplierOrder> SupplierOrders { get; set; }
+        public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<TimeTable> TimeTables { get; set; }
+        public virtual DbSet<WorkerHour> WorkerHours { get; set; }
+        public virtual DbSet<Worker> Workers { get; set; }
     }
 }

@@ -18,14 +18,19 @@ namespace BarberShop
         public Product()
         {
             this.Orders = new HashSet<Order>();
+            this.SupplierOrders = new HashSet<SupplierOrder>();
         }
     
         public int Id { get; set; }
+        public int supplier_id { get; set; }
+        public double price { get; set; }
         public string name { get; set; }
-        public decimal price { get; set; }
         public string description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+        public virtual Supplier Supplier { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SupplierOrder> SupplierOrders { get; set; }
     }
 }
