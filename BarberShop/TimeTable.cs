@@ -15,10 +15,12 @@ namespace BarberShop
     public partial class TimeTable
     {
         public int Id { get; set; }
-        public int customer { get; set; }
+        public int customer_id { get; set; }
         public System.DateTime date { get; set; }
-        public int type { get; set; }
+        public int haricut_id { get; set; }
+        public double price { get; set; }
     
-        public virtual Customer Customer1 { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual Haircut Haircut { get; set; }
     }
 }

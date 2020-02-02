@@ -5,42 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarberShop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="479" Width="585">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="MainWindow" Height="497" Width="710">
     <Grid>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="448" VerticalAlignment="Top" Width="577">
-            <TabItem Header="New" FontSize="14">
-                <Grid Background="#FFE5E5E5" Margin="0,2,0,-2">
-                    <Label Content="Customer:" HorizontalAlignment="Left" Margin="60,60,0,0" VerticalAlignment="Top" Width="76" FontFamily="Roboto"/>
-                    <Label Content="Date:" HorizontalAlignment="Left" Margin="60,120,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
-                    <TextBox x:Name="TxtBoxCustomerNew" HorizontalAlignment="Left" Height="23" Margin="65,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Roboto" IsEnabled="False"/>
-                    <Label Content="Haircut Type:" HorizontalAlignment="Left" Margin="60,181,0,0" VerticalAlignment="Top" Width="90" FontFamily="Roboto"/>
-                    <Label Content="Price:" HorizontalAlignment="Left" Margin="60,241,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
-                    <TextBox x:Name="TxtBoxPriceNew" HorizontalAlignment="Left" Height="23" Margin="65,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Roboto"/>
-                    <Button x:Name="btnFindCustomer" Content="Find" HorizontalAlignment="Left" Margin="160,60,0,0" VerticalAlignment="Top" Width="45" Click="btnFindCustomer_Click"/>
-                    <Button x:Name="NewCustomer1" Content="New" HorizontalAlignment="Left" Margin="209,60,0,0" VerticalAlignment="Top" Width="45" Click="NewCustomer_Click"/>
-                    <Button x:Name="AddNew" Content="Add" HorizontalAlignment="Left" Margin="65,323,0,0" VerticalAlignment="Top" Width="75" Click="AddNew_Click"/>
-                    <Button x:Name="ClearNew" Content="Clear All" HorizontalAlignment="Left" Margin="179,323,0,0" VerticalAlignment="Top" Width="75" Click="ClearNew_Click"/>
-                    <DataGrid x:Name="TimeTableSmall" HorizontalAlignment="Left" Height="363" Margin="285,29,0,0" VerticalAlignment="Top" Width="276"/>
-                    <DatePicker HorizontalAlignment="Left" Margin="65,145,0,0" VerticalAlignment="Top" Width="189">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="466" VerticalAlignment="Top" Width="702" BorderBrush="White">
+            <TabItem Header="New" FontSize="14" BorderBrush="White" Margin="0" Width="44">
+                <Grid Background="White" Margin="0,2,0,-2">
+                    <TextBox x:Name="TxtBoxPriceNew" materialDesign:HintAssist.Hint="Price"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Height="37" Margin="44,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Roboto"/>
+                    <Button x:Name="AddNew" Content="Add" HorizontalAlignment="Left" Margin="44,308,0,0" VerticalAlignment="Top" Width="75" Click="AddNew_Click"/>
+                    <Button x:Name="ClearNew" Content="Clear" HorizontalAlignment="Left" Margin="158,308,0,0" VerticalAlignment="Top" Width="75" Click="ClearNew_Click"/>
+                    <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Margin="251,0,10,10">
+                        <DataGrid x:Name="TimeTableSmall" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="405" Margin="9,9,0,0" VerticalAlignment="Top" Width="428" BorderBrush="#89000000">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Customer.name}" Header="Customer"/>
+                                <DataGridTextColumn Binding="{Binding date, StringFormat=d}" Header="Date"/>
+                                <DataGridTextColumn Binding="{Binding Haircut.name}" Header="Haircut"/>
+                                <DataGridTextColumn Binding="{Binding price}" Header="Price"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+
+
+                    <DatePicker x:Name="datePicker" materialDesign:HintAssist.Hint="Pick Date"
+                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" HorizontalAlignment="Left" Margin="44,130,0,0" VerticalAlignment="Top" Width="189">
                         <DatePicker.Resources>
                             <Style TargetType="DatePickerTextBox">
                                 <Setter Property="IsReadOnly" Value="True"/>
                             </Style>
                         </DatePicker.Resources>
                     </DatePicker>
-                    <ComboBox x:Name="cmbBoxHaircut" HorizontalAlignment="Left" Margin="65,206,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="cmbBoxHaircut_SelectionChanged"/>
+                    <ComboBox x:Name="cmbBoxHaircut" materialDesign:HintAssist.Hint="Haircut"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                      materialDesign:TextFieldAssist.SuffixText=""
+                      materialDesign:HintAssist.HelperText="Select a haircut" HorizontalAlignment="Left" Margin="44,175,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="cmbBoxHaircut_SelectionChanged"/>
+                    <ComboBox x:Name="cmbBoxCustomer" materialDesign:HintAssist.Hint="Customer"
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                        materialDesign:TextFieldAssist.SuffixText=""
+                        materialDesign:HintAssist.HelperText="Select a customer" HorizontalAlignment="Left" Margin="44,73,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="cmbBoxHaircut_SelectionChanged"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Order" FontSize="14">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Order" FontSize="14" BorderBrush="White" Margin="0" Width="50" Height="23">
+                <Grid Background="White"/>
             </TabItem>
-            <TabItem Header="Time Table" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="79" FontSize="14" Margin="0">
+            <TabItem Header="Time Table" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="82" FontSize="14" Margin="0,0,-3,0" BorderBrush="White">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TimeTable" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="571"/>
+                    <DataGrid x:Name="TimeTable" IsReadOnly="True" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="571"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Customer View" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="107" Margin="-2,0,0,0" FontSize="14">
-                <Grid Background="#FFE5E5E5">
+            <TabItem Header="Customer View" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="107" Margin="0" FontSize="14" BorderBrush="White">
+                <Grid Background="White">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
@@ -50,10 +73,10 @@
                             <DataGridTextColumn Binding="{Binding address}" Header="Address"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="97,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <Button Content="Search" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button x:Name="DelCustomerButton" Content="Delete" HorizontalAlignment="Left" Margin="486,10,0,0" VerticalAlignment="Top" Width="75" Click="DelCustomerButton_Click"/>
-                    <Button x:Name="NewCustomer1_Copy" Content="New" HorizontalAlignment="Left" Margin="436,10,0,0" VerticalAlignment="Top" Width="45" Click="NewCustomer_Click"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="97,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Button Content="Search" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="DelCustomerButton" Content="Delete" HorizontalAlignment="Left" Margin="486,5,0,0" VerticalAlignment="Top" Width="75" Click="DelCustomerButton_Click"/>
+                    <Button x:Name="NewCustomer1_Copy" Content="New" HorizontalAlignment="Left" Margin="418,5,0,0" VerticalAlignment="Top" Width="63" Click="NewCustomer_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

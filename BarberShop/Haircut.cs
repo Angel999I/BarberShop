@@ -14,8 +14,17 @@ namespace BarberShop
     
     public partial class Haircut
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Haircut()
+        {
+            this.TimeTables = new HashSet<TimeTable>();
+        }
+    
         public int Id { get; set; }
         public string name { get; set; }
-        public decimal price { get; set; }
+        public double price { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TimeTable> TimeTables { get; set; }
     }
 }

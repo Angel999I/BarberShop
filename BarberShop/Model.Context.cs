@@ -26,9 +26,9 @@ namespace BarberShop
         }
     
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Haircut> Haircuts { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<TimeTable> TimeTables { get; set; }
-        public virtual DbSet<Haircut> Haircuts { get; set; }
     }
 }

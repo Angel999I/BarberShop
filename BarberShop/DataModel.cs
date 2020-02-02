@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BarberShop
 {
-    
+
     class DataModel
     {
         DatabaseEntities db = new DatabaseEntities();
@@ -21,6 +21,23 @@ namespace BarberShop
             {
                 throw new ArgumentException("String is empty", "str");
             }
+        }
+
+        public void ValidateTimeTable(double money, DateTime date, Haircut type, Customer customer)
+        {
+            
+        }
+
+        public void AddTimeTable(double money, DateTime date, int type, int customer)
+        {
+            TimeTable t = new TimeTable();
+            t.customer_id = customer;
+            t.date = date;
+            t.haricut_id = type;
+            t.price = money;
+
+            db.TimeTables.Add(t);
+            db.SaveChanges();
         }
 
         #region Get DB Tables as list
@@ -60,5 +77,7 @@ namespace BarberShop
 
             db.SaveChanges();
         }
+
+
     }
 }
