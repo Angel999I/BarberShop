@@ -59,13 +59,8 @@ namespace BarberShop
 
         #endregion
 
-        public void AddCustomer(string name, string address)
+        public void AddCustomer(Customer c)
         {
-
-            Customer c = new Customer();
-            c.name = name;
-            c.address = address;
-
             db.Customers.Add(c);
 
             db.SaveChanges();

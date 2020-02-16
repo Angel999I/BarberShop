@@ -87,8 +87,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddCustomer.xaml.cs">
-      <DependentUpon>AddCustomer.xaml</DependentUpon>
+    <Compile Include="AddCustomerDialog.xaml.cs">
+      <DependentUpon>AddCustomerDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdditionalCost.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -98,9 +98,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel.cs" />
-    <Compile Include="FindCustomer.xaml.cs">
-      <DependentUpon>FindCustomer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Haircut.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -130,11 +127,7 @@
     <Compile Include="WorkerHour.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Page Include="AddCustomer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FindCustomer.xaml">
+    <Page Include="AddCustomerDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

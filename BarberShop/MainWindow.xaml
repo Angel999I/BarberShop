@@ -14,16 +14,81 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="MainWindow" Height="497" Width="710">
-    <Grid>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="466" VerticalAlignment="Top" Width="702" BorderBrush="White">
-            <TabItem Header="New" FontSize="14" BorderBrush="White" Margin="0" Width="44">
-                <Grid Background="White" Margin="0,2,0,-2">
-                    <TextBox x:Name="TxtBoxPriceNew" materialDesign:HintAssist.Hint="Price"
+    <materialDesign:DialogHost>
+        <Grid>
+            <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="466" VerticalAlignment="Top" Width="702" BorderBrush="White">
+                <TabItem Header="New" FontSize="14" BorderBrush="White" Margin="0" Width="44">
+                    <Grid Background="White" Margin="0,0,0,0">
+                        <TextBox x:Name="TxtBoxPriceNew" materialDesign:HintAssist.Hint="Price"
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Height="37" Margin="44,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Roboto"/>
-                    <Button x:Name="AddNew" Content="Add" HorizontalAlignment="Left" Margin="44,308,0,0" VerticalAlignment="Top" Width="75" Click="AddNew_Click"/>
-                    <Button x:Name="ClearNew" Content="Clear" HorizontalAlignment="Left" Margin="158,308,0,0" VerticalAlignment="Top" Width="75" Click="ClearNew_Click"/>
-                    <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Margin="251,0,10,10">
-                        <DataGrid x:Name="TimeTableSmall" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="405" Margin="9,9,0,0" VerticalAlignment="Top" Width="428" BorderBrush="#89000000">
+                        <Button x:Name="AddNew" Content="Add" HorizontalAlignment="Left" Margin="44,308,0,0" VerticalAlignment="Top" Width="75" Click="AddNew_Click"/>
+                        <Button x:Name="ClearNew" Content="Clear" HorizontalAlignment="Left" Margin="158,308,0,0" VerticalAlignment="Top" Width="75" Click="ClearNew_Click"/>
+
+                        <DataGrid x:Name="TimeTableSmall" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="415" Margin="282,10,0,0" VerticalAlignment="Top" Width="404" BorderBrush="#89000000" Background="White">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Customer.name}" Header="Customer"/>
+                                <DataGridTextColumn Binding="{Binding date, StringFormat=d}" Header="Date"/>
+                                <DataGridTextColumn Binding="{Binding Haircut.name}" Header="Haircut"/>
+                                <DataGridTextColumn Binding="{Binding price}" Header="Price"/>
+                            </DataGrid.Columns>
+                            <DataGrid.Resources>
+                                <ContextMenu x:Key="DataRowContextMenu">
+                                    <MenuItem Header="Remove" Click="DelCustomer_Click">
+                                        <MenuItem.Icon>
+                                            <materialDesign:PackIcon Kind="UserRemove" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </DataGrid.Resources>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="{x:Type DataGridRow}">
+                                    <Setter Property="ContextMenu" Value="{StaticResource DataRowContextMenu}" />
+                                </Style>
+                            </DataGrid.RowStyle>
+                        </DataGrid>
+
+
+                        <DatePicker x:Name="datePicker" materialDesign:HintAssist.Hint="Pick Date"
+                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" HorizontalAlignment="Left" Margin="44,130,0,0" VerticalAlignment="Top" Width="189">
+                            <DatePicker.Resources>
+                                <Style TargetType="DatePickerTextBox">
+                                    <Setter Property="IsReadOnly" Value="True"/>
+                                </Style>
+                            </DatePicker.Resources>
+                        </DatePicker>
+                        <ComboBox x:Name="CmbBoxHaircut" materialDesign:HintAssist.Hint="Haircut"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                      materialDesign:TextFieldAssist.SuffixText=""
+                      materialDesign:HintAssist.HelperText="Select a haircut" HorizontalAlignment="Left" Margin="44,175,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="CmbBoxHaircut_SelectionChanged"/>
+                        <ComboBox x:Name="CmbBoxCustomer" materialDesign:HintAssist.Hint="Customer"
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                        materialDesign:TextFieldAssist.SuffixText=""
+                        materialDesign:HintAssist.HelperText="Select a customer" HorizontalAlignment="Left" Margin="44,73,0,0" VerticalAlignment="Top" Width="189"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Suppliers" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="70" Margin="0,0,0,0" FontSize="14" BorderBrush="White">
+                    <TabItem.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TabItem.Background>
+                    <Grid Background="White"/>
+                </TabItem>
+                <TabItem Header="Supply Order" FontSize="14" BorderBrush="White" Margin="0" Height="23">
+                    <TabItem.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TabItem.Background>
+                    <Grid Background="White"/>
+                </TabItem>
+                <TabItem Header="Time Table" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="82" FontSize="14" Margin="0,0,0,0" BorderBrush="White">
+                    <Grid Background="White">
+                        <DataGrid x:Name="TimeTableView" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="393" VerticalAlignment="Top" Width="696" Margin="0,42,0,0" Background="White">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Customer.name}" Header="Customer"/>
                                 <DataGridTextColumn Binding="{Binding date, StringFormat=d}" Header="Date"/>
@@ -31,54 +96,42 @@
                                 <DataGridTextColumn Binding="{Binding price}" Header="Price"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                    </Border>
+                        <TextBox x:Name="TimeTableSearch" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextChanged="TimeTableSearch_TextChanged"/>
+                        <Button x:Name="NewTimeTable" Content="New" HorizontalAlignment="Left" Margin="623,5,0,0" VerticalAlignment="Top" Width="63" Click="NewCustomer_Click"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Customer View" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="107" Margin="0,0,0,0" FontSize="14" BorderBrush="White">
+                    <Grid Background="White" Margin="0,0,-3,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <DataGrid x:Name="CustomersView" HorizontalAlignment="Left" Height="393" IsReadOnly="True" AutoGenerateColumns="False" VerticalAlignment="Top" Width="696" Margin="0,42,0,0" Background="White">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding name}" Header="Name"/>
+                                <DataGridTextColumn Binding="{Binding address}" Header="Address"/>
+                            </DataGrid.Columns>
+                            <DataGrid.Resources>
+                                <ContextMenu x:Key="DataRowContextMenu">
+                                    <MenuItem Header="Remove" Click="DelCustomer_Click">
+                                        <MenuItem.Icon>
+                                            <materialDesign:PackIcon Kind="UserRemove" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </DataGrid.Resources>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="{x:Type DataGridRow}">
+                                    <Setter Property="ContextMenu" Value="{StaticResource DataRowContextMenu}" />
+                                </Style>
+                            </DataGrid.RowStyle>
+                        </DataGrid>
+                        <TextBox x:Name="CustomerSearch" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextChanged="CustomerSearch_TextChanged"/>
+                        <Button x:Name="NewCustomer" Content="New" HorizontalAlignment="Left" Margin="623,5,0,0" VerticalAlignment="Top" Width="63" Click="NewCustomer_Click"/>
+                    </Grid>
+                </TabItem>
 
 
-                    <DatePicker x:Name="datePicker" materialDesign:HintAssist.Hint="Pick Date"
-                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" HorizontalAlignment="Left" Margin="44,130,0,0" VerticalAlignment="Top" Width="189">
-                        <DatePicker.Resources>
-                            <Style TargetType="DatePickerTextBox">
-                                <Setter Property="IsReadOnly" Value="True"/>
-                            </Style>
-                        </DatePicker.Resources>
-                    </DatePicker>
-                    <ComboBox x:Name="cmbBoxHaircut" materialDesign:HintAssist.Hint="Haircut"
-                      materialDesign:TextFieldAssist.HasClearButton="True"
-                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                      materialDesign:TextFieldAssist.SuffixText=""
-                      materialDesign:HintAssist.HelperText="Select a haircut" HorizontalAlignment="Left" Margin="44,175,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="cmbBoxHaircut_SelectionChanged"/>
-                    <ComboBox x:Name="cmbBoxCustomer" materialDesign:HintAssist.Hint="Customer"
-                        materialDesign:TextFieldAssist.HasClearButton="True"
-                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                        materialDesign:TextFieldAssist.SuffixText=""
-                        materialDesign:HintAssist.HelperText="Select a customer" HorizontalAlignment="Left" Margin="44,73,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="cmbBoxHaircut_SelectionChanged"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Order" FontSize="14" BorderBrush="White" Margin="0" Width="50" Height="23">
-                <Grid Background="White"/>
-            </TabItem>
-            <TabItem Header="Time Table" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="82" FontSize="14" Margin="0,0,-3,0" BorderBrush="White">
-                <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TimeTable" IsReadOnly="True" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="571"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Customer View" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="107" Margin="0" FontSize="14" BorderBrush="White">
-                <Grid Background="White">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="CustomersView" HorizontalAlignment="Left" Height="376" AutoGenerateColumns="False" VerticalAlignment="Top" Width="571" Margin="0,41,0,0">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding name}" Header="Name"/>
-                            <DataGridTextColumn Binding="{Binding address}" Header="Address"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="97,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <Button Content="Search" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button x:Name="DelCustomerButton" Content="Delete" HorizontalAlignment="Left" Margin="486,5,0,0" VerticalAlignment="Top" Width="75" Click="DelCustomerButton_Click"/>
-                    <Button x:Name="NewCustomer1_Copy" Content="New" HorizontalAlignment="Left" Margin="418,5,0,0" VerticalAlignment="Top" Width="63" Click="NewCustomer_Click"/>
-                </Grid>
-            </TabItem>
-        </TabControl>
-    </Grid>
+            </TabControl>
+        </Grid>
+    </materialDesign:DialogHost>
 </Window>

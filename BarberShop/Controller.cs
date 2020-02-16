@@ -9,12 +9,9 @@ namespace BarberShop
     class Controller
     {
         DataModel model = new DataModel();
-        public void AddCustomer(string name, string address)
+        public void AddCustomer(Customer c)
         {
-            model.ValidateString(name);
-            model.ValidateString(address);
-
-            model.AddCustomer(name, address);
+            model.AddCustomer(c);
         }
 
         public void AddTimeTable(double money, DateTime date, int type, int customer)
