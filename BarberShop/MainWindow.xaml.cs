@@ -52,51 +52,17 @@ namespace BarberShop
             TimeTableView.ItemsSource = cont.GetTimeTable();
         }
 
+        private void UpdateSuppliersView()
+        {
+            SupplyOrdersView.ItemsSource = cont.GetSuppliers();
+        }
+
         private void ClearNew_Click(object sender, RoutedEventArgs e)
         {
             CmbBoxHaircut.SelectedIndex = -1;
             CmbBoxCustomer.SelectedIndex = -1;
             datePicker.SelectedDate = null;
             TxtBoxPriceNew.Text = "";
-        }
-
-        private async void NewCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            //AddCustomer win = new AddCustomer();
-            //win.ShowDialog();
-
-            Customer customer = new Customer();
-
-            AddCustomerDialog dialog = new AddCustomerDialog()
-            {
-                DataContext = customer
-            };
-
-
-            await DialogHost.Show(dialog, (object _, DialogClosingEventArgs args) =>
-            {
-
-                if (args.Parameter.GetType() == typeof(bool) && (bool)args.Parameter)
-                {
-                    try
-                    {
-                        cont.AddCustomer(customer);
-                        UpdateCustomersView();
-                    }
-
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        args.Cancel();
-
-                        dialog.name.Text = "";
-                        dialog.address.Text = "";
-
-                        customer.name = "";
-                        customer.address = "";
-                    }
-                }
-            });
         }
 
         private void DelCustomer_Click(object sender, RoutedEventArgs e)
@@ -183,6 +149,81 @@ namespace BarberShop
             }
 
             TimeTableView.ItemsSource = result;
+        }
+
+        private async void NewSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            Supplier supplier = new Supplier();
+
+            AddSupplierDialogue dialog = new AddSupplierDialogue()
+            {
+                DataContext = supplier
+            };
+
+            await DialogHost.Show(dialog, (object _, DialogClosingEventArgs args) =>
+            {
+
+                if (args.Parameter.GetType() == typeof(bool) && (bool)args.Parameter)
+                {
+                    try
+                    {
+                        cont.AddSupplier(supplier);
+                        UpdateSuppliersView();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        args.Cancel();
+
+                        dialog.name.Text = "";
+                        dialog.address.Text = "";
+                        dialog.phone.Text = "";
+                        dialog.email.Text = "";
+
+                        supplier.name = "";
+                        supplier.address = "";
+                        supplier.phone = "";
+                        supplier.email = "";
+                    }
+                }
+            });
+        }
+
+        private async void NewCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            Customer customer = new Customer();
+
+            AddCustomerDialog dialog = new AddCustomerDialog()
+            {
+                DataContext = customer
+            };
+
+
+            await DialogHost.Show(dialog, (object _, DialogClosingEventArgs args) =>
+            {
+
+                if (args.Parameter.GetType() == typeof(bool) && (bool)args.Parameter)
+                {
+                    try
+                    {
+                        cont.AddCustomer(customer);
+                        UpdateCustomersView();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        args.Cancel();
+
+                        dialog.name.Text = "";
+                        dialog.address.Text = "";
+
+                        customer.name = "";
+                        customer.address = "";
+                    }
+                }
+            });
         }
     }
 }

@@ -14,6 +14,11 @@ namespace BarberShop
             model.AddCustomer(c);
         }
 
+        public void AddSupplier(Supplier s)
+        {
+            model.AddSupplier(s);
+        }
+
         public void AddTimeTable(double money, DateTime date, int type, int customer)
         {
             model.AddTimeTable(money, date, type, customer);
@@ -32,6 +37,11 @@ namespace BarberShop
         public List<Haircut> GetHaircuts()
         {
             return model.GetHaircuts();
+        }
+
+        public List<Supplier> GetSuppliers()
+        {
+            return model.GetSuppliers();
         }
 
         public void DeleteCustomer(Customer c)

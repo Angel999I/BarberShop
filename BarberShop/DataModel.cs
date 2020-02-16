@@ -40,6 +40,20 @@ namespace BarberShop
             db.SaveChanges();
         }
 
+        public void AddCustomer(Customer c)
+        {
+            db.Customers.Add(c);
+
+            db.SaveChanges();
+        }
+
+        public void AddSupplier(Supplier s)
+        {
+            db.Suppliers.Add(s);
+
+            db.SaveChanges();
+        }
+
         #region Get DB Tables as list
 
         public List<Customer> GetCustomers()
@@ -57,14 +71,12 @@ namespace BarberShop
             return db.Haircuts.ToList();
         }
 
-        #endregion
-
-        public void AddCustomer(Customer c)
+        public List<Supplier> GetSuppliers()
         {
-            db.Customers.Add(c);
-
-            db.SaveChanges();
+            return db.Suppliers.ToList();
         }
+
+        #endregion
 
         public void DeleteCustomer(Customer c)
         {

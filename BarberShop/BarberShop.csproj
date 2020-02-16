@@ -93,6 +93,9 @@
     <Compile Include="AdditionalCost.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="AddSupplierDialogue.xaml.cs">
+      <DependentUpon>AddSupplierDialogue.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -128,6 +131,10 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Page Include="AddCustomerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddSupplierDialogue.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
