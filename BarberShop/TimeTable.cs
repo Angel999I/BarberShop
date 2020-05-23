@@ -19,6 +19,7 @@ namespace BarberShop
         public System.DateTime date { get; set; }
         public int haricut_id { get; set; }
         public double price { get; set; }
+        public System.TimeSpan time { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Haircut Haircut { get; set; }

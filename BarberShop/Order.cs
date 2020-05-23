@@ -18,7 +18,7 @@ namespace BarberShop
         public int customer_id { get; set; }
         public int product_id { get; set; }
         public System.DateTime date { get; set; }
-        public double price { get; set; }
+        public string price { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Product Product { get; set; }

@@ -38,7 +38,7 @@
           <Property Name="customer_id" Type="int" Nullable="false" />
           <Property Name="product_id" Type="int" Nullable="false" />
           <Property Name="date" Type="date" Nullable="false" />
-          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="price" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -58,6 +58,8 @@
           <Property Name="supplier_id" Type="int" Nullable="false" />
           <Property Name="product_id" Type="int" Nullable="false" />
           <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="amount" Type="int" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Suppliers">
           <Key>
@@ -78,6 +80,7 @@
           <Property Name="date" Type="date" Nullable="false" />
           <Property Name="haricut_id" Type="int" Nullable="false" />
           <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="time" Type="time" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="WorkerHours">
           <Key>
@@ -97,19 +100,7 @@
           <Property Name="identification" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="address" Type="nvarchar" MaxLength="150" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Orders_Customers">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Orders">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Orders_Products">
+        <Association Name="F_SupplierOrders_Products">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -118,6 +109,18 @@
             </Principal>
             <Dependent Role="Orders">
               <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="F_TimeTable_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="customer_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -204,12 +207,12 @@
           <EntitySet Name="TimeTable" EntityType="Self.TimeTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkerHours" EntityType="Self.WorkerHours" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
-            <End Role="Customers" EntitySet="Customers" />
+          <AssociationSet Name="F_SupplierOrders_Products" Association="Self.F_SupplierOrders_Products">
+            <End Role="Products" EntitySet="Products" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK_Orders_Products" Association="Self.FK_Orders_Products">
-            <End Role="Products" EntitySet="Products" />
+          <AssociationSet Name="F_TimeTable_Customers" Association="Self.F_TimeTable_Customers">
+            <End Role="Customers" EntitySet="Customers" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Products_Suppliers" Association="Self.FK_Products_Suppliers">
@@ -252,7 +255,7 @@
           <EntitySet Name="TimeTables" EntityType="DatabaseModel.TimeTable" />
           <EntitySet Name="WorkerHours" EntityType="DatabaseModel.WorkerHour" />
           <EntitySet Name="Workers" EntityType="DatabaseModel.Worker" />
-          <AssociationSet Name="FK_Orders_Customers" Association="DatabaseModel.FK_Orders_Customers">
+          <AssociationSet Name="F_TimeTable_Customers" Association="DatabaseModel.F_TimeTable_Customers">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
@@ -264,7 +267,7 @@
             <End Role="Haircut" EntitySet="Haircuts" />
             <End Role="TimeTable" EntitySet="TimeTables" />
           </AssociationSet>
-          <AssociationSet Name="FK_Orders_Products" Association="DatabaseModel.FK_Orders_Products">
+          <AssociationSet Name="F_SupplierOrders_Products" Association="DatabaseModel.F_SupplierOrders_Products">
             <End Role="Product" EntitySet="Products" />
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
@@ -301,7 +304,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Orders" Relationship="DatabaseModel.FK_Orders_Customers" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Orders" Relationship="DatabaseModel.F_TimeTable_Customers" FromRole="Customer" ToRole="Order" />
           <NavigationProperty Name="TimeTables" Relationship="DatabaseModel.FK_TimeTable_Customers" FromRole="Customer" ToRole="TimeTable" />
         </EntityType>
         <EntityType Name="Haircut">
@@ -321,9 +324,9 @@
           <Property Name="customer_id" Type="Int32" Nullable="false" />
           <Property Name="product_id" Type="Int32" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="price" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="DatabaseModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
-          <NavigationProperty Name="Product" Relationship="DatabaseModel.FK_Orders_Products" FromRole="Order" ToRole="Product" />
+          <Property Name="price" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="DatabaseModel.F_TimeTable_Customers" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="Product" Relationship="DatabaseModel.F_SupplierOrders_Products" FromRole="Order" ToRole="Product" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -334,7 +337,7 @@
           <Property Name="price" Type="Double" Nullable="false" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Orders" Relationship="DatabaseModel.FK_Orders_Products" FromRole="Product" ToRole="Order" />
+          <NavigationProperty Name="Orders" Relationship="DatabaseModel.F_SupplierOrders_Products" FromRole="Product" ToRole="Order" />
           <NavigationProperty Name="Supplier" Relationship="DatabaseModel.FK_Products_Suppliers" FromRole="Product" ToRole="Supplier" />
           <NavigationProperty Name="SupplierOrders" Relationship="DatabaseModel.FK_SupplierOrders_Products" FromRole="Product" ToRole="SupplierOrder" />
         </EntityType>
@@ -346,6 +349,8 @@
           <Property Name="supplier_id" Type="Int32" Nullable="false" />
           <Property Name="product_id" Type="Int32" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="amount" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="DatabaseModel.FK_SupplierOrders_Products" FromRole="SupplierOrder" ToRole="Product" />
           <NavigationProperty Name="Supplier" Relationship="DatabaseModel.FK_SupplierOrders_Suppliers" FromRole="SupplierOrder" ToRole="Supplier" />
         </EntityType>
@@ -370,6 +375,7 @@
           <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="haricut_id" Type="Int32" Nullable="false" />
           <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="time" Type="Time" Nullable="false" Precision="7" />
           <NavigationProperty Name="Customer" Relationship="DatabaseModel.FK_TimeTable_Customers" FromRole="TimeTable" ToRole="Customer" />
           <NavigationProperty Name="Haircut" Relationship="DatabaseModel.FK_TimeTable_Haircuts" FromRole="TimeTable" ToRole="Haircut" />
         </EntityType>
@@ -393,7 +399,7 @@
           <Property Name="address" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="WorkerHours" Relationship="DatabaseModel.FK_WorkerHours_Workers" FromRole="Worker" ToRole="WorkerHour" />
         </EntityType>
-        <Association Name="FK_Orders_Customers">
+        <Association Name="F_TimeTable_Customers">
           <End Type="DatabaseModel.Customer" Role="Customer" Multiplicity="1" />
           <End Type="DatabaseModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -429,7 +435,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Orders_Products">
+        <Association Name="F_SupplierOrders_Products">
           <End Type="DatabaseModel.Product" Role="Product" Multiplicity="1" />
           <End Type="DatabaseModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -548,6 +554,8 @@
           <EntitySetMapping Name="SupplierOrders">
             <EntityTypeMapping TypeName="DatabaseModel.SupplierOrder">
               <MappingFragment StoreEntitySet="SupplierOrders">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
@@ -569,6 +577,7 @@
           <EntitySetMapping Name="TimeTables">
             <EntityTypeMapping TypeName="DatabaseModel.TimeTable">
               <MappingFragment StoreEntitySet="TimeTable">
+                <ScalarProperty Name="time" ColumnName="time" />
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="haricut_id" ColumnName="haricut_id" />
                 <ScalarProperty Name="date" ColumnName="date" />

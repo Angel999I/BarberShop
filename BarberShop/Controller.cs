@@ -14,14 +14,51 @@ namespace BarberShop
             model.AddCustomer(c);
         }
 
-        public void AddSupplier(Supplier s)
+        public void AddSupplier(string name, string address, string phone, string email)
         {
+            Supplier s = new Supplier();
+            s.name = name;
+            s.address = address;
+            s.phone = phone;
+            s.email = email;
             model.AddSupplier(s);
         }
 
-        public void AddTimeTable(double money, DateTime date, int type, int customer)
+        public void AddBook(double money, DateTime date, int type, int customer, TimeSpan time)
         {
-            model.AddTimeTable(money, date, type, customer);
+            TimeTable t = new TimeTable();
+            t.customer_id = customer;
+            t.date = date;
+            t.haricut_id = type;
+            t.price = money;
+            t.time = time;
+
+            model.AddBook(t);
+        }
+
+        public void AddWorker(string name, string id, string address)
+        {
+            Worker w = new Worker();
+            w.name = name;
+            w.identification = id;
+            w.address = address;
+
+            model.AddWorker(w);
+        }
+
+        public void EditBook(TimeTable t)
+        {
+            model.EditBook(t);
+        }
+
+        public void EditSupplier(Supplier s)
+        {
+            model.EditSupplier(s);
+        }
+
+        public void EditWorker(Worker w)
+        {
+            model.EditWorker(w);
         }
 
         public List<Customer> GetCustomers()
@@ -39,14 +76,38 @@ namespace BarberShop
             return model.GetHaircuts();
         }
 
+        public List<SupplierOrder> GetSupplierOrders()
+        {
+            return model.GetSupplierOrders();
+        }
+
         public List<Supplier> GetSuppliers()
         {
             return model.GetSuppliers();
         }
 
+        public List<Worker> GetWorkers()
+        {
+            return model.GetWorkers();
+        }
+
         public void DeleteCustomer(Customer c)
         {
             model.DeleteCustomer(c);
+        }
+
+        public void DeleteTimeTable(TimeTable t)
+        {
+            model.DeleteTimeTable(t);
+        }
+
+        public void DeleteSupplier(Supplier s)
+        {
+            model.DeleteSupplier(s);
+        }
+        public void DeleteWorker(Worker w)
+        {
+            model.DeleteWorker(w);
         }
 
 

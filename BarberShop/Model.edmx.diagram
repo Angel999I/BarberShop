@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="967d5f293e584164aa67d7e075408ad0" Name="Diagram1">
-        <EntityTypeShape EntityType="DatabaseModel.AdditionalCost" Width="1.5" PointX="7.75" PointY="5" />
-        <EntityTypeShape EntityType="DatabaseModel.Customer" Width="1.5" PointX="0.5" PointY="7.5" />
-        <EntityTypeShape EntityType="DatabaseModel.Haircut" Width="1.5" PointX="3" PointY="10.75" />
-        <EntityTypeShape EntityType="DatabaseModel.Order" Width="1.5" PointX="2.875" PointY="5.25" />
-        <EntityTypeShape EntityType="DatabaseModel.Product" Width="1.5" PointX="4.75" PointY="1.5" />
-        <EntityTypeShape EntityType="DatabaseModel.SupplierOrder" Width="1.5" PointX="0.625" PointY="0.75" />
-        <EntityTypeShape EntityType="DatabaseModel.Supplier" Width="1.5" PointX="0.625" PointY="3.875" />
-        <EntityTypeShape EntityType="DatabaseModel.TimeTable" Width="1.5" PointX="6.75" PointY="8" />
-        <EntityTypeShape EntityType="DatabaseModel.WorkerHour" Width="1.5" PointX="10" PointY="2.125" />
-        <EntityTypeShape EntityType="DatabaseModel.Worker" Width="1.5" PointX="7.75" PointY="2.125" />
-        <AssociationConnector Association="DatabaseModel.FK_Orders_Customers" />
+      <Diagram DiagramId="967d5f293e584164aa67d7e075408ad0" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="DatabaseModel.AdditionalCost" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DatabaseModel.Customer" Width="1.5" PointX="6" PointY="8" />
+        <EntityTypeShape EntityType="DatabaseModel.Haircut" Width="1.5" PointX="6" PointY="11" />
+        <EntityTypeShape EntityType="DatabaseModel.Order" Width="1.5" PointX="8.25" PointY="2.75" />
+        <EntityTypeShape EntityType="DatabaseModel.Product" Width="1.5" PointX="3" PointY="2.625" />
+        <EntityTypeShape EntityType="DatabaseModel.SupplierOrder" Width="1.5" PointX="5.25" PointY="2.625" />
+        <EntityTypeShape EntityType="DatabaseModel.Supplier" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="DatabaseModel.TimeTable" Width="1.5" PointX="8.25" PointY="7.625" />
+        <EntityTypeShape EntityType="DatabaseModel.WorkerHour" Width="1.5" PointX="13" PointY="0.875" />
+        <EntityTypeShape EntityType="DatabaseModel.Worker" Width="1.5" PointX="10.75" PointY="0.875" />
+        <AssociationConnector Association="DatabaseModel.F_TimeTable_Customers" />
         <AssociationConnector Association="DatabaseModel.FK_TimeTable_Customers" />
         <AssociationConnector Association="DatabaseModel.FK_TimeTable_Haircuts" />
-        <AssociationConnector Association="DatabaseModel.FK_Orders_Products" />
+        <AssociationConnector Association="DatabaseModel.F_SupplierOrders_Products" />
         <AssociationConnector Association="DatabaseModel.FK_Products_Suppliers" />
         <AssociationConnector Association="DatabaseModel.FK_SupplierOrders_Products" />
         <AssociationConnector Association="DatabaseModel.FK_SupplierOrders_Suppliers" />

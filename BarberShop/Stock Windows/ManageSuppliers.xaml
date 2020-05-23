@@ -1,0 +1,48 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShop"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="BarberShop.ManageSuppliers"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="ManageSuplliers" Height="452.506" Width="778.064">
+    <Grid>
+        <DataGrid x:Name="SuppliersDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="332" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750">
+            <DataGrid.Resources>
+                <ContextMenu x:Key="DataRowContextMenu">
+                    <MenuItem Header="Remove" Click="DeleteSupplier_Click">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="UserRemove" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Edit" Click="EditSupplier_Click">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="AccountEditOutline"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding name}" Header="Name"/>
+                <DataGridTextColumn Binding="{Binding address}" Header="Address"/>
+                <DataGridTextColumn Binding="{Binding phone}" Header="Phone Number"/>
+                <DataGridTextColumn Binding="{Binding email}" Header="Email"/>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="ContextMenu" Value="{StaticResource DataRowContextMenu}" />
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <Button x:Name="NewSupplierButton" Content="New" HorizontalAlignment="Left" Margin="677,14,0,0" VerticalAlignment="Top" Width="75" Click="NewSupplierButton_Click"/>
+
+    </Grid>
+</Window>

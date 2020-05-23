@@ -18,6 +18,8 @@ namespace BarberShop
         public int supplier_id { get; set; }
         public int product_id { get; set; }
         public System.DateTime date { get; set; }
+        public int amount { get; set; }
+        public double price { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual Supplier Supplier { get; set; }
