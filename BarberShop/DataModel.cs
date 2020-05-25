@@ -58,6 +58,18 @@ namespace BarberShop
             db.SaveChanges();
         }
 
+        public void EditCustomer(Customer c)
+        {
+            var update = db.Customers.Where(o => o.Id == c.Id).FirstOrDefault();
+            if (update != null)
+            {
+                update.name = c.name;
+                update.address = c.address;
+            }
+
+            db.SaveChanges();
+        }
+
         public void AddBook(TimeTable t)
         {           
             db.TimeTables.Add(t);
@@ -115,6 +127,11 @@ namespace BarberShop
         public List<Worker> GetWorkers()
         {
             return db.Workers.ToList();
+        }
+
+        public List<Product> GetProducts()
+        {
+            return db.Products.ToList();
         }
 
         #endregion

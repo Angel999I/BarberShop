@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="ManageTimeTable" Height="452.506" Width="778.064">
+        Title="ManageTimeTable" Height="450" Width="800">
     <Grid>
         <DatePicker x:Name="DatePicker" materialDesign:HintAssist.Hint="From Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Width="122" CalendarClosed="DatePicker_CalendarClosed"/>
         <DataGrid x:Name="TimeTableDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="332" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750">

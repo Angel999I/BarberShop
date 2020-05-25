@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="ManageSuplliers" Height="452.506" Width="778.064">
+        Title="ManageSuplliers" Height="450" Width="800">
     <Grid>
         <DataGrid x:Name="SuppliersDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="332" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750">
             <DataGrid.Resources>

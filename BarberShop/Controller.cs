@@ -9,8 +9,11 @@ namespace BarberShop
     class Controller
     {
         DataModel model = new DataModel();
-        public void AddCustomer(Customer c)
+        public void AddCustomer(string name, string address)
         {
+            Customer c = new Customer();
+            c.name = name;
+            c.address = address;
             model.AddCustomer(c);
         }
 
@@ -61,6 +64,11 @@ namespace BarberShop
             model.EditWorker(w);
         }
 
+        public void EditCustomer(Customer c)
+        {
+            model.EditCustomer(c);
+        }
+
         public List<Customer> GetCustomers()
         {
             return model.GetCustomers();
@@ -89,6 +97,11 @@ namespace BarberShop
         public List<Worker> GetWorkers()
         {
             return model.GetWorkers();
+        }
+
+        public List<Product> GetProducts()
+        {
+            return model.GetProducts();
         }
 
         public void DeleteCustomer(Customer c)

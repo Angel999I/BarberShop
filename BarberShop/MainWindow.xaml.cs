@@ -50,6 +50,15 @@ namespace BarberShop
             System.Windows.Application.Current.Shutdown();
         }
 
+        private void ManageCustomers_Click(object sender, RoutedEventArgs e)
+        {
+            ManageCustomers window = new ManageCustomers();
+            window.ShowDialog();
+        }
 
+        private void ManageProductList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

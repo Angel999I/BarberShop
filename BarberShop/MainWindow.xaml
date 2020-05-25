@@ -28,7 +28,7 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Customers">
-                    <MenuItem Header="Manage Customers">
+                    <MenuItem Header="Manage Customers" Click="ManageCustomers_Click">
                     </MenuItem>
                     <MenuItem Header="View Customer's history"></MenuItem>
                 </MenuItem>
@@ -36,7 +36,7 @@
                     <MenuItem Header="Manage Suppliers" Click="ManageSuppliers_Click">
                         
                     </MenuItem>
-                    <MenuItem Header="Manage Products List">
+                    <MenuItem Header="Manage Products List" Click="ManageProductList_Click">
                         
                     </MenuItem>
                     <MenuItem Header="Order Products">

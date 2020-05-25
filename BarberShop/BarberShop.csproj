@@ -88,6 +88,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Windows\AddCustomer.xaml.cs">
+      <DependentUpon>AddCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Windows\ManageCustomers.xaml.cs">
+      <DependentUpon>ManageCustomers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManageProductsList.xaml.cs">
+      <DependentUpon>ManageProductsList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Stock Windows\AddSupplier.xaml.cs">
       <DependentUpon>AddSupplier.xaml</DependentUpon>
     </Compile>
@@ -143,6 +155,22 @@
     <Compile Include="Workers Windows\ManageWorkers.xaml.cs">
       <DependentUpon>ManageWorkers.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customer Windows\AddCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customer Windows\ManageCustomers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManageProductsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Stock Windows\AddSupplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

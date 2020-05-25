@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
-        Title="AddBook" Height="381.685" Width="277.925">
+        Title="AddBook" Height="380" Width="275">
     <Grid>
 
         <DatePicker x:Name="DatePicker" materialDesign:HintAssist.Hint="Pick Date"
