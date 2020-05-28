@@ -88,7 +88,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddProduct.xaml.cs">
+    <Compile Include="AddClockHours.xaml.cs">
+      <DependentUpon>AddClockHours.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ClockWorkers.xaml.cs">
+      <DependentUpon>ClockWorkers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Stock Windows\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="Customer Windows\AddCustomer.xaml.cs">
@@ -97,7 +103,7 @@
     <Compile Include="Customer Windows\ManageCustomers.xaml.cs">
       <DependentUpon>ManageCustomers.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManageProductsList.xaml.cs">
+    <Compile Include="Stock Windows\ManageProductsList.xaml.cs">
       <DependentUpon>ManageProductsList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Stock Windows\AddSupplier.xaml.cs">
@@ -155,7 +161,15 @@
     <Compile Include="Workers Windows\ManageWorkers.xaml.cs">
       <DependentUpon>ManageWorkers.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddProduct.xaml">
+    <Page Include="AddClockHours.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClockWorkers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Stock Windows\AddProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,7 +181,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ManageProductsList.xaml">
+    <Page Include="Stock Windows\ManageProductsList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -23,6 +23,7 @@ namespace BarberShop.Workers_Windows
         public ManageWorkers()
         {
             InitializeComponent();
+            UpdateDataGrid();
         }
 
         private void UpdateDataGrid()

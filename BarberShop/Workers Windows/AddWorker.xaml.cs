@@ -25,6 +25,7 @@ namespace BarberShop.Workers_Windows
         public AddWorker()
         {
             InitializeComponent();
+            
             isEdit = false;
         }
 

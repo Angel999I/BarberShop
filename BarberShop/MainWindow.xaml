@@ -47,7 +47,7 @@
                     <MenuItem Header="Manage Workers" Click="ManageWorkers_Click">
                         
                     </MenuItem>
-                    <MenuItem Header="Clock Workers">
+                    <MenuItem Header="Clock Workers" Click="ClockWorkers_Click">
 
                     </MenuItem>
                 </MenuItem>

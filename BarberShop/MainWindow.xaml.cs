@@ -58,7 +58,14 @@ namespace BarberShop
 
         private void ManageProductList_Click(object sender, RoutedEventArgs e)
         {
+            ManageProductsList window = new ManageProductsList();
+            window.ShowDialog();
+        }
 
+        private void ClockWorkers_Click(object sender, RoutedEventArgs e)
+        {
+            ClockWorkers window = new ClockWorkers();
+            window.ShowDialog();
         }
     }
 }

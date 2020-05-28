@@ -19,20 +19,20 @@
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="146,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
         <TextBox x:Name="NameTextBox"
   materialDesign:HintAssist.Hint="Name"
-  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-  VerticalAlignment="Center" Margin="50,39,50,269" Height="43" />
+  
+  Margin="50,50,50,269"/>
         <TextBox x:Name="AddressTextBox"
             materialDesign:HintAssist.Hint="Address"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            VerticalAlignment="Center" Margin="50,87,50,221" Height="43" />
+            
+            VerticalAlignment="Center" Margin="50,87,50,221"/>
         <TextBox x:Name="PhoneTextBox"
             materialDesign:HintAssist.Hint="Phone Number"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            VerticalAlignment="Center" Margin="50,135,50,173" Height="43" />
+            
+            VerticalAlignment="Center" Margin="50,135,50,173"/>
         <TextBox x:Name="EmailTextBox"
             materialDesign:HintAssist.Hint="Email"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            VerticalAlignment="Center" Margin="50,183,50,125" Height="43" />
+            
+            VerticalAlignment="Center" Margin="50,183,50,125"/>
 
     </Grid>
 </Window>

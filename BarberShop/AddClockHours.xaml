@@ -1,0 +1,45 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShop"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="BarberShop.AddClockHours"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="AddClockHours" Height="380" Width="275">
+    <Grid>
+
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="50,291,0,0" VerticalAlignment="Top" Click="AddButton_Click" RenderTransformOrigin="0.423,-1.389"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="146,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" Width="77" />
+        <TextBox x:Name="HoursTextBox"
+        materialDesign:HintAssist.Hint="Hours"
+        VerticalAlignment="Center" Margin="50,42,50,277" />
+        <TextBox x:Name="SalaryTextBox"
+        materialDesign:HintAssist.Hint="Salary"
+        VerticalAlignment="Center" Margin="50,89,50,229" />
+        <ComboBox x:Name="WorkerPicker" materialDesign:HintAssist.Hint="Worker"
+            materialDesign:TextFieldAssist.HasClearButton="True"
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+            materialDesign:TextFieldAssist.SuffixText=""
+            materialDesign:HintAssist.HelperText="Select a worker" HorizontalAlignment="Left" Margin="50,125,0,0" VerticalAlignment="Top" Width="167"/>
+        <DatePicker x:Name="DatePicker" materialDesign:HintAssist.Hint="Pick Date"
+            HorizontalAlignment="Left" Margin="50,185,0,0" VerticalAlignment="Top" Width="167">
+            <DatePicker.Resources>
+                <Style TargetType="{x:Type DatePickerTextBox}">
+                    <Setter Property="IsReadOnly" Value="True"/>
+                </Style>
+            </DatePicker.Resources>
+            <DatePicker.Style>
+                <StaticResource ResourceKey="MaterialDesignFloatingHintDatePicker"/>
+            </DatePicker.Style>
+        </DatePicker>
+
+    </Grid>
+</Window>

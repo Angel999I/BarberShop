@@ -70,6 +70,34 @@ namespace BarberShop
             db.SaveChanges();
         }
 
+        public void EditProduct(Product p)
+        {
+            var update = db.Products.Where(o => o.Id == p.Id).FirstOrDefault();
+            if (update != null)
+            {
+                update.name = p.name;
+                update.price = p.price;
+                update.description = p.description;
+                update.supplier_id = p.supplier_id;
+            }
+
+            db.SaveChanges();
+        }
+
+        public void EditWorkerHour(WorkerHour w)
+        {
+            var update = db.WorkerHours.Where(o => o.Id == w.Id).FirstOrDefault();
+            if (update != null)
+            {
+                update.worker_id = w.worker_id;
+                update.hours = w.hours;
+                update.salary = w.salary;
+                update.date = w.date;
+            }
+
+            db.SaveChanges();
+        }
+
         public void AddBook(TimeTable t)
         {           
             db.TimeTables.Add(t);
@@ -93,6 +121,20 @@ namespace BarberShop
         public void AddWorker(Worker w)
         {
             db.Workers.Add(w);
+
+            db.SaveChanges();
+        }
+
+        public void AddProduct(Product p)
+        {
+            db.Products.Add(p);
+
+            db.SaveChanges();
+        }
+
+        public void AddWorkerHour(WorkerHour w)
+        {
+            db.WorkerHours.Add(w);
 
             db.SaveChanges();
         }
@@ -134,6 +176,11 @@ namespace BarberShop
             return db.Products.ToList();
         }
 
+        public List<WorkerHour> GetWorkerHours()
+        {
+            return db.WorkerHours.ToList();
+        }
+
         #endregion
 
         public void DeleteCustomer(Customer c)
@@ -164,6 +211,17 @@ namespace BarberShop
             db.SaveChanges();
         }
 
+        public void DeleteProduct(Product p)
+        {
+            db.Products.Remove(p);
 
+            db.SaveChanges();
+        }
+
+        public void DeleteWorkerHour(WorkerHour w)
+        {
+            db.WorkerHours.Remove(w);
+            db.SaveChanges();
+        }
     }
 }

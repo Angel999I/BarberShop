@@ -90,6 +90,7 @@
           <Property Name="worker_id" Type="int" Nullable="false" />
           <Property Name="hours" Type="float" Nullable="false" />
           <Property Name="salary" Type="float" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Workers">
           <Key>
@@ -387,6 +388,7 @@
           <Property Name="worker_id" Type="Int32" Nullable="false" />
           <Property Name="hours" Type="Double" Nullable="false" />
           <Property Name="salary" Type="Double" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Worker" Relationship="DatabaseModel.FK_WorkerHours_Workers" FromRole="WorkerHour" ToRole="Worker" />
         </EntityType>
         <EntityType Name="Worker">
@@ -589,6 +591,7 @@
           <EntitySetMapping Name="WorkerHours">
             <EntityTypeMapping TypeName="DatabaseModel.WorkerHour">
               <MappingFragment StoreEntitySet="WorkerHours">
+                <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="salary" ColumnName="salary" />
                 <ScalarProperty Name="hours" ColumnName="hours" />
                 <ScalarProperty Name="worker_id" ColumnName="worker_id" />

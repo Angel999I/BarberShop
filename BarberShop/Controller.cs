@@ -49,6 +49,28 @@ namespace BarberShop
             model.AddWorker(w);
         }
 
+        public void AddProduct(string name, double price, string description, int supplier)
+        {
+            Product p = new Product();
+            p.name = name;
+            p.price = price;
+            p.description = description;
+            p.supplier_id = supplier;
+
+            model.AddProduct(p);
+        }
+
+        public void AddWorkerHour(int worker, int hours, double salary, DateTime date)
+        {
+            WorkerHour w = new WorkerHour();
+            w.worker_id = worker;
+            w.hours = hours;
+            w.salary = salary;
+            w.date = date;
+
+            model.AddWorkerHour(w);
+        }
+
         public void EditBook(TimeTable t)
         {
             model.EditBook(t);
@@ -67,6 +89,16 @@ namespace BarberShop
         public void EditCustomer(Customer c)
         {
             model.EditCustomer(c);
+        }
+
+        public void EditProduct(Product p)
+        {
+            model.EditProduct(p);
+        }
+
+        public void EditWorkerHour(WorkerHour w)
+        {
+            model.EditWorkerHour(w);
         }
 
         public List<Customer> GetCustomers()
@@ -104,6 +136,11 @@ namespace BarberShop
             return model.GetProducts();
         }
 
+        public List<WorkerHour> GetWorkerHours()
+        {
+            return model.GetWorkerHours();
+        }
+
         public void DeleteCustomer(Customer c)
         {
             model.DeleteCustomer(c);
@@ -121,6 +158,16 @@ namespace BarberShop
         public void DeleteWorker(Worker w)
         {
             model.DeleteWorker(w);
+        }
+
+        public void DeleteProduct(Product p)
+        {
+            model.DeleteProduct(p);
+        }
+
+        public void DeleteWorkerHour(WorkerHour w)
+        {
+            model.DeleteWorkerHour(w);
         }
 
 

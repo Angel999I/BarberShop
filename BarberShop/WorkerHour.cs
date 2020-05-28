@@ -18,6 +18,7 @@ namespace BarberShop
         public int worker_id { get; set; }
         public double hours { get; set; }
         public double salary { get; set; }
+        public System.DateTime date { get; set; }
     
         public virtual Worker Worker { get; set; }
     }

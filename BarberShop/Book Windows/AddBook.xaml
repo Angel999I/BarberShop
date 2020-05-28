@@ -33,13 +33,13 @@
         <materialDesign:TimePicker x:Name="TimePicker" Is24Hours="True"
 
   Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
-  materialDesign:HintAssist.Hint="" Margin="55,75,40,230" Height="46"  />
+  materialDesign:HintAssist.Hint="" Margin="55,89,46,223" />
         <ComboBox x:Name="HaircutPicker" materialDesign:HintAssist.Hint="Haircut"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                       materialDesign:TextFieldAssist.SuffixText=""
                       materialDesign:HintAssist.HelperText="Select a haircut" HorizontalAlignment="Left" Margin="55,179,0,0" VerticalAlignment="Top" Width="166" SelectionChanged="HaircutPickerChanged"/>
-        <TextBox x:Name="PriceTextBox" materialDesign:HintAssist.Hint="Price" Margin="55,238,49,80" />
+        <TextBox x:Name="PriceTextBox" materialDesign:HintAssist.Hint="Price" Margin="55,238,46,80" />
         <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="61,291,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="147,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
     </Grid>

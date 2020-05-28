@@ -6,23 +6,20 @@
         xmlns:local="clr-namespace:BarberShop.Workers_Windows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="BarberShop.Workers_Windows.AddWorker"
         mc:Ignorable="d"
-        Title="AddWorker" Height="381.685" Width="277.925">
+        Title="AddWorker" Height="380" Width="275">
     <Grid>
 
         <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="50,291,0,0" VerticalAlignment="Top" Click="AddButton_Click" RenderTransformOrigin="0.423,-1.389"/>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="146,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
         <TextBox x:Name="NameTextBox"
         materialDesign:HintAssist.Hint="Name"
-        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-        VerticalAlignment="Center" Margin="50,39,50,269" Height="43" />
+        VerticalAlignment="Center" Margin="50,39,50,269"/>
         <TextBox x:Name="IdTextBox"
         materialDesign:HintAssist.Hint="Identification"
-        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-        VerticalAlignment="Center" Margin="50,87,50,221" Height="43" />
+        VerticalAlignment="Center" Margin="50,87,50,221"/>
         <TextBox x:Name="AddressTextBox"
         materialDesign:HintAssist.Hint="Address"
-        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-        VerticalAlignment="Center" Margin="50,135,50,173" Height="43" />
+        VerticalAlignment="Center" Margin="50,135,50,173"/>
 
     </Grid>
 </Window>
