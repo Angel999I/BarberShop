@@ -28,6 +28,9 @@ namespace BarberShop
 
         private void UpdateDataGrid()
         {
+            controller = null;
+            controller = new Controller();
+            TimeTableDataGrid.ItemsSource = null;
             TimeTableDataGrid.ItemsSource = controller.GetTimeTable();
         }
 
@@ -64,9 +67,9 @@ namespace BarberShop
             {
                 controller.DeleteTimeTable((TimeTable)TimeTableDataGrid.SelectedItem);
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Unexpected error, please try again", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             UpdateDataGrid();
@@ -79,6 +82,17 @@ namespace BarberShop
             window.ShowDialog();
             UpdateDataGrid();
             DatePicker.SelectedDate = null;
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

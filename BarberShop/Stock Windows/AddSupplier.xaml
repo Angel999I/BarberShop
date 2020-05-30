@@ -11,28 +11,28 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="#FFFAFAFA"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="AddSupplier" Height="381.685" Width="277.925">
+        Title="AddSupplier" Height="380" Width="275" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
     <Grid>
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="50,291,0,0" VerticalAlignment="Top" Click="AddButton_Click" RenderTransformOrigin="0.423,-1.389"/>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="146,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="54,291,0,0" VerticalAlignment="Top" Click="AddButton_Click" RenderTransformOrigin="0.423,-1.389"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="148,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" RenderTransformOrigin="0.648,0.442" />
         <TextBox x:Name="NameTextBox"
   materialDesign:HintAssist.Hint="Name"
   
-  Margin="50,50,50,269"/>
+  Margin="0,50,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="168"/>
         <TextBox x:Name="AddressTextBox"
             materialDesign:HintAssist.Hint="Address"
             
-            VerticalAlignment="Center" Margin="50,87,50,221"/>
+            VerticalAlignment="Top" Margin="0,92,0,0" HorizontalAlignment="Center" Width="168"/>
         <TextBox x:Name="PhoneTextBox"
             materialDesign:HintAssist.Hint="Phone Number"
             
-            VerticalAlignment="Center" Margin="50,135,50,173"/>
+            VerticalAlignment="Top" Margin="0,135,0,0" HorizontalAlignment="Center" Width="168"/>
         <TextBox x:Name="EmailTextBox"
             materialDesign:HintAssist.Hint="Email"
             
-            VerticalAlignment="Center" Margin="50,183,50,125"/>
+            VerticalAlignment="Top" Margin="0,174,0,0" HorizontalAlignment="Center" Width="168"/>
 
     </Grid>
 </Window>

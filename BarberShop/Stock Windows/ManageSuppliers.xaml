@@ -11,11 +11,11 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="White"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="ManageSuplliers" Height="450" Width="800">
+        Title="ManageSuplliers" Height="450" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
     <Grid>
-        <DataGrid x:Name="SuppliersDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="332" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750">
+        <DataGrid x:Name="SuppliersDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="332" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750" Background="White">
             <DataGrid.Resources>
                 <ContextMenu x:Key="DataRowContextMenu">
                     <MenuItem Header="Remove" Click="DeleteSupplier_Click">
@@ -42,7 +42,9 @@
                 </Style>
             </DataGrid.RowStyle>
         </DataGrid>
-        <Button x:Name="NewSupplierButton" Content="New" HorizontalAlignment="Left" Margin="677,14,0,0" VerticalAlignment="Top" Width="75" Click="NewSupplierButton_Click"/>
+        <Button x:Name="NewSupplierButton" Content="New" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="NewSupplierButton_Click"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="685,10,0,0" VerticalAlignment="Top" Click="CancelButton_Click" RenderTransformOrigin="0.561,0.516" Width="75" />
+        <Label x:Name="Title" Content="Manage Supplier" HorizontalAlignment="Center" Margin="0,426,0,0" VerticalAlignment="Top" Width="114" FontFamily="Roboto" FontSize="14"/>
 
     </Grid>
 </Window>

@@ -11,21 +11,21 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="#FFFAFAFA"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="AddCustomer" Height="380" Width="275">
+        Title="AddCustomer" Height="380" Width="275" WindowStyle="None" ResizeMode="NoResize" MouseDown="Window_MouseDown" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="50,291,0,0" VerticalAlignment="Top" Click="AddButton_Click" RenderTransformOrigin="0.423,-1.389"/>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="146,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="148,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
         <TextBox x:Name="NameTextBox"
         materialDesign:HintAssist.Hint="Name"
         
-        VerticalAlignment="Center" Margin="50,52,47,267"/>
+        VerticalAlignment="Top" Margin="0,52,0,267" Width="168" HorizontalAlignment="Center"/>
         <TextBox x:Name="AddressTextBox"
         materialDesign:HintAssist.Hint="Address"
         
- Margin="50,104,47,219"/>
+ Margin="0,99,0,219" Width="168" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

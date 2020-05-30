@@ -4,9 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarberShop"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="White"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="ManageCustomers" Height="450" Width="800">
+        Title="ManageCustomers" Height="450" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
     <Grid>
 
         <DataGrid x:Name="CustomersDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="332" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="742" Background="White">
@@ -34,7 +41,9 @@
                 </Style>
             </DataGrid.RowStyle>
         </DataGrid>
-        <Button x:Name="NewCustomerButton" Content="New" HorizontalAlignment="Left" Margin="677,14,0,0" VerticalAlignment="Top" Width="75" Click="NewCustomerButton_Click"/>
+        <Button x:Name="NewCustomerButton" Content="New" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="NewCustomerButton_Click"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="678,10,0,0" VerticalAlignment="Top" Click="CancelButton_Click" RenderTransformOrigin="0.561,0.516" Width="75"/>
+        <Label x:Name="Title" Content="Manage Customers" HorizontalAlignment="Center" Margin="0,426,0,0" VerticalAlignment="Top" Width="127" FontFamily="Roboto" FontSize="14"/>
 
     </Grid>
 </Window>

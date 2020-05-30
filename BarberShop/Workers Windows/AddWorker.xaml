@@ -6,20 +6,20 @@
         xmlns:local="clr-namespace:BarberShop.Workers_Windows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="BarberShop.Workers_Windows.AddWorker"
         mc:Ignorable="d"
-        Title="AddWorker" Height="380" Width="275">
+        Title="AddWorker" Height="380" Width="275" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" Background="#FFFAFAFA">
     <Grid>
 
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="50,291,0,0" VerticalAlignment="Top" Click="AddButton_Click" RenderTransformOrigin="0.423,-1.389"/>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="146,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="54,291,0,0" VerticalAlignment="Top" Click="AddButton_Click" RenderTransformOrigin="0.423,-1.389"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="148,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
         <TextBox x:Name="NameTextBox"
         materialDesign:HintAssist.Hint="Name"
-        VerticalAlignment="Center" Margin="50,39,50,269"/>
+        VerticalAlignment="Top" Margin="0,39,0,269" Width="168" HorizontalAlignment="Center"/>
         <TextBox x:Name="IdTextBox"
         materialDesign:HintAssist.Hint="Identification"
-        VerticalAlignment="Center" Margin="50,87,50,221"/>
+        VerticalAlignment="Top" Margin="0,87,0,221" Width="168" HorizontalAlignment="Center"/>
         <TextBox x:Name="AddressTextBox"
         materialDesign:HintAssist.Hint="Address"
-        VerticalAlignment="Center" Margin="50,135,50,173"/>
+        VerticalAlignment="Top" Margin="0,135,0,173" Width="168" HorizontalAlignment="Center"/>
 
     </Grid>
 </Window>

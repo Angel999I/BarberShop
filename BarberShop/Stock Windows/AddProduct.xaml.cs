@@ -61,24 +61,50 @@ namespace BarberShop
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            string name = NameTextBox.Text;
-            double price = double.Parse(PriceTextBox.Text);
-            string description = DescriptionTextBox.Text;
-            int supplier = ((Supplier)SupplierPicker.SelectedItem).Id;
-
-            if(!isEdit)
-            controller.AddProduct(name,price,description,supplier);
-            else
+            try
             {
-                p.name = name;
-                p.price = price;
-                p.description = description;
-                p.supplier_id = supplier;
+                string name = NameTextBox.Text;
+                double price = double.Parse(PriceTextBox.Text);
+                string description = DescriptionTextBox.Text;
+                int supplier = (SupplierPicker.SelectedItem as Supplier).Id;
 
-                controller.EditProduct(p);
+                if (!isEdit)
+                    controller.AddProduct(name, price, description, supplier);
+                else
+                {
+                    p.name = name;
+                    p.price = price;
+                    p.description = description;
+                    p.supplier_id = supplier;
+                    p.Supplier = controller.GetSuppliers().Find(x => x.Id == p.supplier_id);
+
+                    controller.EditProduct(p);
+                }
+
+                this.Close();
             }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show("One of the fields is empty", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Ensure that only numbers is present in number fields", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Ensure that the selection boxes are not empty", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
-            this.Close();
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

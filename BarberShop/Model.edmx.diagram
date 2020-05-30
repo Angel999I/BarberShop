@@ -13,8 +13,8 @@
         <EntityTypeShape EntityType="DatabaseModel.SupplierOrder" Width="1.5" PointX="5.25" PointY="2.625" />
         <EntityTypeShape EntityType="DatabaseModel.Supplier" Width="1.5" PointX="0.75" PointY="2.75" />
         <EntityTypeShape EntityType="DatabaseModel.TimeTable" Width="1.5" PointX="8.25" PointY="7.625" />
-        <EntityTypeShape EntityType="DatabaseModel.WorkerHour" Width="1.5" PointX="13" PointY="0.875" />
-        <EntityTypeShape EntityType="DatabaseModel.Worker" Width="1.5" PointX="10.75" PointY="1" />
+        <EntityTypeShape EntityType="DatabaseModel.WorkerHour" Width="1.5" PointX="13" PointY="1" />
+        <EntityTypeShape EntityType="DatabaseModel.Worker" Width="1.5" PointX="10.75" PointY="1.125" />
         <AssociationConnector Association="DatabaseModel.F_TimeTable_Customers" />
         <AssociationConnector Association="DatabaseModel.FK_TimeTable_Customers" />
         <AssociationConnector Association="DatabaseModel.FK_TimeTable_Haircuts" />

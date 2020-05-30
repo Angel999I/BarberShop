@@ -88,11 +88,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddClockHours.xaml.cs">
+    <Compile Include="IncomesReport.xaml.cs">
+      <DependentUpon>IncomesReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ExpensesReport.xaml.cs">
+      <DependentUpon>ExpensesReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AddAdditionalCost.xaml.cs">
+      <DependentUpon>AddAdditionalCost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AdditionalExpenses.xaml.cs">
+      <DependentUpon>AdditionalExpenses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Book Windows\AddOrderCustomer.xaml.cs">
+      <DependentUpon>AddOrderCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Windows\CustomerHistory.xaml.cs">
+      <DependentUpon>CustomerHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Book Windows\SellProduct.xaml.cs">
+      <DependentUpon>SellProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Stock Windows\AddOrder.xaml.cs">
+      <DependentUpon>AddOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workers Windows\AddClockHours.xaml.cs">
       <DependentUpon>AddClockHours.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ClockWorkers.xaml.cs">
+    <Compile Include="Workers Windows\ClockWorkers.xaml.cs">
       <DependentUpon>ClockWorkers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Stock Windows\OrderProducts.xaml.cs">
+      <DependentUpon>OrderProducts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Stock Windows\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
@@ -161,11 +188,47 @@
     <Compile Include="Workers Windows\ManageWorkers.xaml.cs">
       <DependentUpon>ManageWorkers.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddClockHours.xaml">
+    <Page Include="IncomesReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ClockWorkers.xaml">
+    <Page Include="Reports\ExpensesReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\AddAdditionalCost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\AdditionalExpenses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Book Windows\AddOrderCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customer Windows\CustomerHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Book Windows\SellProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Stock Windows\AddOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workers Windows\AddClockHours.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workers Windows\ClockWorkers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Stock Windows\OrderProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

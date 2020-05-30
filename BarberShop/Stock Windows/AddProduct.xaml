@@ -6,19 +6,19 @@
         xmlns:local="clr-namespace:BarberShop"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="BarberShop.AddProduct"
         mc:Ignorable="d"
-        Title="AddProduct" Height="380" Width="275">
+        Title="AddProduct" Height="380" Width="275" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" Background="#FFFAFAFA">
     <Grid>
 
         <ComboBox x:Name="SupplierPicker" materialDesign:HintAssist.Hint="Supplier"
         materialDesign:TextFieldAssist.HasClearButton="True"
         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
         materialDesign:TextFieldAssist.SuffixText=""
-        materialDesign:HintAssist.HelperText="Select a supplier" HorizontalAlignment="Left" Margin="55,74,0,0" VerticalAlignment="Top" Width="163"/>
-        <TextBox x:Name="NameTextBox" materialDesign:HintAssist.Hint="Name" Margin="55,38,49,280" />
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="55,291,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="147,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
-        <TextBox x:Name="PriceTextBox" materialDesign:HintAssist.Hint="Price" Margin="55,135,49,183" />
-        <TextBox x:Name="DescriptionTextBox" materialDesign:HintAssist.Hint="Description" Margin="55,179,49,139" />
+        materialDesign:HintAssist.HelperText="Select a supplier" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="NameTextBox" materialDesign:HintAssist.Hint="Name" Margin="0,38,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="168" />
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="54,291,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="148,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
+        <TextBox x:Name="PriceTextBox" materialDesign:HintAssist.Hint="Price" Margin="0,135,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="168" />
+        <TextBox x:Name="DescriptionTextBox" materialDesign:HintAssist.Hint="Description" Margin="0,179,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="168" />
 
     </Grid>
 </Window>

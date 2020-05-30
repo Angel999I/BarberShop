@@ -1,0 +1,68 @@
+﻿<Window 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShop"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="BarberShop.ExpensesReport"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="White"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="ExpensesReport" Height="1200" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <DataGrid x:Name="AdditionalExpenseDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="320" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750" Background="White">
+            <DataGrid.Resources>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding cost}" Header="Cost"/>
+                <DataGridTextColumn Binding="{Binding date, StringFormat=d}" Header="Date"/>
+                <DataGridTextColumn Binding="{Binding description}" Header="Description"/>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="680,15,0,0" VerticalAlignment="Top" Click="CancelButton_Click" RenderTransformOrigin="0.561,0.516" Width="75" />
+        <DataGrid x:Name="OrderDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="332" Margin="10,456,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750" Background="White">
+            <DataGrid.Resources>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding price}" Header="Cost"/>
+                <DataGridTextColumn Binding="{Binding date, StringFormat=d}" Header="Date"/>
+                <DataGridTextColumn Binding="{Binding Supplier.name}" Header="Supplier"/>
+                <DataGridTextColumn Binding="{Binding Product.name}" Header="Product"/>
+                <DataGridTextColumn Binding="{Binding amount}" Header="Amount"/>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <DataGrid x:Name="WorkerHoursDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="332" Margin="10,827,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750" Background="White">
+            <DataGrid.Resources>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding total}" Header="Cost"/>
+                <DataGridTextColumn Binding="{Binding date, StringFormat=d}" Header="Date"/>
+                <DataGridTextColumn Binding="{Binding Worker.name}" Header="Worker"/>
+                <DataGridTextColumn Binding="{Binding hours}" Header="Hours"/>
+                <DataGridTextColumn Binding="{Binding salary}" Header="Salary"/>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <Label x:Name="TotalCost" Content="" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="230"/>
+        <DatePicker x:Name="DatePicker" materialDesign:HintAssist.Hint="From Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="122" SelectedDateChanged="UpdateDataGrid"/>
+        <Label x:Name="Title" Content="Expenses Report" HorizontalAlignment="Center" Margin="0,1175,0,0" VerticalAlignment="Top" Width="109" FontFamily="Roboto" FontSize="14"/>
+
+    </Grid>
+</Window>

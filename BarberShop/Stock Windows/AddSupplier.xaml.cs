@@ -51,23 +51,37 @@ namespace BarberShop
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            string name = NameTextBox.Text;
-            string address = AddressTextBox.Text;
-            string phone = PhoneTextBox.Text;
-            string email = EmailTextBox.Text;
-
-            if(!isEdit)
-                controller.AddSupplier(name, address, phone, email);
-            else
+            try
             {
-                s.name = name;
-                s.address = address;
-                s.phone = phone;
-                s.email = email;
-                controller.EditSupplier(s);
+                string name = NameTextBox.Text;
+                string address = AddressTextBox.Text;
+                string phone = PhoneTextBox.Text;
+                string email = EmailTextBox.Text;
+
+                if (!isEdit)
+                    controller.AddSupplier(name, address, phone, email);
+                else
+                {
+                    s.name = name;
+                    s.address = address;
+                    s.phone = phone;
+                    s.email = email;
+                    controller.EditSupplier(s);
+                }
+
+                this.Close();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            this.Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

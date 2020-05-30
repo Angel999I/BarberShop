@@ -13,58 +13,66 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="759.334" Width="1148.778">
-    <materialDesign:DialogHost>
+        Title="Gabi's Barber Shop" Height="759.334" Width="1148.778" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <materialDesign:DialogHost MouseDown="DialogHost_MouseDown">
         <Grid>
-            <Menu IsMainMenu="True">
+            <Menu Background="White">
                 <MenuItem Header="Book">
                     <MenuItem Header="Manage Time Table" Click="ManageTimeTable_Click">
                         <MenuItem.Icon>
                             <materialDesign:PackIcon Kind="CalendarClock" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="Sell Product">
-                        
+                    <MenuItem Header="Sell Products" Click="SellProducts_Click">
+
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Customers">
                     <MenuItem Header="Manage Customers" Click="ManageCustomers_Click">
                     </MenuItem>
-                    <MenuItem Header="View Customer's history"></MenuItem>
+                    <MenuItem Header="View Customer's history" Click="CustomerHistory_Click"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Stock">
                     <MenuItem Header="Manage Suppliers" Click="ManageSuppliers_Click">
-                        
+
                     </MenuItem>
                     <MenuItem Header="Manage Products List" Click="ManageProductList_Click">
-                        
+
                     </MenuItem>
-                    <MenuItem Header="Order Products">
-                        
+                    <MenuItem Header="Order Products" Click="OrderProducts_Click">
+
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Workers">
                     <MenuItem Header="Manage Workers" Click="ManageWorkers_Click">
-                        
+
                     </MenuItem>
                     <MenuItem Header="Clock Workers" Click="ClockWorkers_Click">
 
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Reports">
-                    <MenuItem Header="Report Additional Expenses">
-                        
+                    <MenuItem Header="Report Additional Expenses" Click="ReportAdditionalExpenses">
+
                     </MenuItem>
-                    <MenuItem Header="All Expenses And Income Report">
-                        
+                    <MenuItem Header="Expenses Report" Click="ExpensesReport_Click" >
+
                     </MenuItem>
-                    <MenuItem Header="Workers Activity">
-                        
+                    <MenuItem Header="Incomes Report" Click="IncomeReport_Click">
+
                     </MenuItem>
+                </MenuItem>
+                <MenuItem x:Name="Center" Header="Center Screen" Click="Center_Click">
                 </MenuItem>
                 <MenuItem x:Name="Exit" Header="Exit" Click="Exit_Click">
                 </MenuItem>
+
+
             </Menu>
+            <Label Content="Gabi's Barber Shop" HorizontalAlignment="Center" Margin="0,256,0,393" VerticalAlignment="Top" Width="459" FontSize="48" FontWeight="Bold" Height="79"/>
+            <Label Content="Omer Benisty © 2020" HorizontalAlignment="Center" Margin="0,321,0,353" FontSize="18" Width="190" VerticalAlignment="Top"/>
+            <Label Content="Software Engineering Project" HorizontalAlignment="Center" Margin="0,696,0,-22" FontSize="18" Width="244" VerticalAlignment="Top"/>
+            <Label Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1149" FontSize="48" FontWeight="Bold" Height="715" Margin="0,44,0,0"/>
         </Grid>
     </materialDesign:DialogHost>
 </Window>

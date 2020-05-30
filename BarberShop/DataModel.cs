@@ -11,11 +11,6 @@ namespace BarberShop
     {
         DatabaseEntities db = new DatabaseEntities();
 
-        public void ValidateTimeTable(double money, DateTime date, Haircut type, Customer customer)
-        {
-            
-        }
-
         public void EditBook(TimeTable t)
         {
             var update = db.TimeTables.Where(o => o.Id == t.Id).FirstOrDefault();
@@ -26,7 +21,10 @@ namespace BarberShop
                 update.haricut_id = t.haricut_id;
                 update.customer_id = t.customer_id;
                 update.time = t.time;
+                update.Customer = t.Customer;
+                update.Haircut = t.Haircut;
             }
+
 
             db.SaveChanges();
         }
@@ -75,10 +73,11 @@ namespace BarberShop
             var update = db.Products.Where(o => o.Id == p.Id).FirstOrDefault();
             if (update != null)
             {
-                update.name = p.name;
-                update.price = p.price;
-                update.description = p.description;
                 update.supplier_id = p.supplier_id;
+                update.Supplier = p.Supplier;
+                update.price = p.price;
+                update.name = p.name;
+                update.description = p.description;
             }
 
             db.SaveChanges();
@@ -90,17 +89,66 @@ namespace BarberShop
             if (update != null)
             {
                 update.worker_id = w.worker_id;
+                update.Worker = w.Worker;
                 update.hours = w.hours;
                 update.salary = w.salary;
                 update.date = w.date;
+                update.total = w.total;
+            }
+
+            db.SaveChanges();
+        }
+
+        public void EditSupplierOrder(SupplierOrder s)
+        {
+            var update = db.SupplierOrders.Where(o => o.Id == s.Id).FirstOrDefault();
+            if (update != null)
+            {
+                update.supplier_id = s.supplier_id;
+                update.product_id = s.product_id;
+                update.date = s.date;
+                update.amount = s.amount;
+                update.price = s.price;
+                update.Supplier = s.Supplier;
+                update.Product = s.Product;
+            }
+
+            db.SaveChanges();
+        }
+
+        public void EditOrder(Order r)
+        {
+            var update = db.Orders.Where(o => o.Id == r.Id).FirstOrDefault();
+            if (update != null)
+            {
+                update.customer_id = r.customer_id;
+                update.product_id = r.product_id;
+                update.Customer = r.Customer;
+                update.Product = r.Product;
+                update.date = r.date;
+                update.price = r.price;
+            }
+
+            db.SaveChanges();
+        }
+
+        public void EditAdditionalCost(AdditionalCost a)
+        {
+            var update = db.AdditionalCosts.Where(o => o.Id == a.Id).FirstOrDefault();
+            if (update != null)
+            {
+                update.cost = a.cost;
+                update.description = a.description;
+                update.date = a.date;               
             }
 
             db.SaveChanges();
         }
 
         public void AddBook(TimeTable t)
-        {           
+        {
             db.TimeTables.Add(t);
+
             db.SaveChanges();
         }
 
@@ -139,6 +187,27 @@ namespace BarberShop
             db.SaveChanges();
         }
 
+        public void AddSupplierOrder(SupplierOrder s)
+        {
+            db.SupplierOrders.Add(s);
+
+            db.SaveChanges();
+        }
+
+        public void AddOrder(Order o)
+        {
+            db.Orders.Add(o);
+
+            db.SaveChanges();
+        }
+
+        public void AddAdditionalCost(AdditionalCost a)
+        {
+            db.AdditionalCosts.Add(a);
+
+            db.SaveChanges();
+        }
+
         #region Get DB Tables as list
 
         public List<Customer> GetCustomers()
@@ -148,7 +217,7 @@ namespace BarberShop
 
         public List<TimeTable> GetTimeTable()
         {
-            return db.TimeTables.ToList();
+            return db.TimeTables.ToList();           
         }
 
         public List<Haircut> GetHaircuts()
@@ -179,6 +248,16 @@ namespace BarberShop
         public List<WorkerHour> GetWorkerHours()
         {
             return db.WorkerHours.ToList();
+        }
+
+        public List<Order> GetOrders()
+        {
+            return db.Orders.ToList();
+        }
+
+        public List<AdditionalCost> GetAdditionalCosts()
+        {
+            return db.AdditionalCosts.ToList();
         }
 
         #endregion
@@ -221,6 +300,28 @@ namespace BarberShop
         public void DeleteWorkerHour(WorkerHour w)
         {
             db.WorkerHours.Remove(w);
+
+            db.SaveChanges();
+        }
+
+        public void DeleteSupplierOrder(SupplierOrder s)
+        {
+            db.SupplierOrders.Remove(s);
+
+            db.SaveChanges();
+        }
+
+        public void DeleteOrder(Order o)
+        {
+            db.Orders.Remove(o);
+
+            db.SaveChanges();
+        }
+
+        public void DeleteAdditionalCost(AdditionalCost a)
+        {
+            db.AdditionalCosts.Remove(a);
+
             db.SaveChanges();
         }
     }

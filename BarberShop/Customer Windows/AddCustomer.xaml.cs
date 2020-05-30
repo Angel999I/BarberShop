@@ -33,6 +33,7 @@ namespace BarberShop
             InitializeComponent();
             this.c = c;
             isEdit = true;
+            UpdateCustomerInfo();
         }
 
         public void UpdateCustomerInfo()
@@ -48,20 +49,33 @@ namespace BarberShop
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            string name = NameTextBox.Text;
-            string address = AddressTextBox.Text;
-
-            if(!isEdit)
-                controller.AddCustomer(name, address);
-            else
+            try
             {
-                c.name = name;
-                c.address = address;
+                string name = NameTextBox.Text;
+                string address = AddressTextBox.Text;
 
-                controller.EditCustomer(c);
+                if (!isEdit)
+                    controller.AddCustomer(name, address);
+                else
+                {
+                    c.name = name;
+                    c.address = address;
+
+                    controller.EditCustomer(c);
+                }
+
+                this.Close();
             }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
-            this.Close();
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

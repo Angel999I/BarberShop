@@ -63,25 +63,49 @@ namespace BarberShop
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            double price = double.Parse(PriceTextBox.Text);
-            TimeSpan time = TimeSpan.Parse(TimePicker.Text);
-            DateTime date = (DateTime)DatePicker.SelectedDate;
-            int type = ((Haircut)HaircutPicker.SelectedItem).Id;
-            int customer = ((Customer)CustomerPicker.SelectedItem).Id;
-
-
-            if(!isEdit)
-                controller.AddBook(price, date, type, customer, time);
-            else
+            try
             {
-                t.price = price;
-                t.time = time;
-                t.date = date;
-                t.haricut_id = type;
-                t.customer_id = customer;
-                controller.EditBook(t);
+                double price = double.Parse(PriceTextBox.Text);
+                TimeSpan time = TimeSpan.Parse(TimePicker.Text);
+                DateTime date = (DateTime)DatePicker.SelectedDate;
+                int type = (HaircutPicker.SelectedItem as Haircut).Id;
+                int customer = (CustomerPicker.SelectedItem as Customer).Id;
+
+
+                if (!isEdit)
+                    controller.AddBook(price, date, type, customer, time);
+                else
+                {
+                    t.price = price;
+                    t.time = time;
+                    t.date = date;
+                    t.haricut_id = type;
+                    t.customer_id = customer;
+                    t.Customer = controller.GetCustomers().Find(x => x.Id == t.customer_id);
+                    t.Haircut = controller.GetHaircuts().Find(x => x.Id == t.haricut_id);
+
+                    controller.EditBook(t);
+                }
+
+                this.Close();
             }
-            this.Close();
+            catch(ArgumentNullException ex)
+            {
+                MessageBox.Show("One of the fields is empty", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch(ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch(FormatException ex)
+            {
+                MessageBox.Show("Ensure that only numbers is present in number fields", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Ensure that the selection boxes are not empty", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
         }
 
         private void HaircutPickerChanged(object sender, SelectionChangedEventArgs e)
@@ -93,6 +117,12 @@ namespace BarberShop
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

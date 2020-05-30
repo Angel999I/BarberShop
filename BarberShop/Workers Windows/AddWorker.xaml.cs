@@ -51,21 +51,34 @@ namespace BarberShop.Workers_Windows
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            string name = NameTextBox.Text;
-            string id = IdTextBox.Text;
-            string address = AddressTextBox.Text;
-
-            if(!isEdit)
-                controller.AddWorker(name,id, address);
-            else
+            try
             {
-                w.name = name;
-                w.identification = id;
-                w.address = address;
-                controller.EditWorker(w);
-            }
+                string name = NameTextBox.Text;
+                string id = IdTextBox.Text;
+                string address = AddressTextBox.Text;
 
-            this.Close();
+                if (!isEdit)
+                    controller.AddWorker(name, id, address);
+                else
+                {
+                    w.name = name;
+                    w.identification = id;
+                    w.address = address;
+                    controller.EditWorker(w);
+                }
+
+                this.Close();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

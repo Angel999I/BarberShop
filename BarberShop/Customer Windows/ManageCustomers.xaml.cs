@@ -41,7 +41,7 @@ namespace BarberShop
         private void EditCustomer_Click(object sender, RoutedEventArgs e)
         {
             Customer c = (Customer)CustomersDataGrid.SelectedItem;
-            AddCustomer window = new AddCustomer();
+            AddCustomer window = new AddCustomer(c);
             window.ShowDialog();
             UpdateDataGrid();
         }
@@ -58,6 +58,17 @@ namespace BarberShop
             }
 
             UpdateDataGrid();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

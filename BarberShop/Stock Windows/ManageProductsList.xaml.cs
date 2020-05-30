@@ -28,6 +28,8 @@ namespace BarberShop
 
         private void UpdateDataGrid()
         {
+            controller = null;
+            controller = new Controller();
             ProductsDataGrid.ItemsSource = controller.GetProducts();
         }
 
@@ -51,6 +53,17 @@ namespace BarberShop
             AddProduct window = new AddProduct(p);
             window.ShowDialog();
             UpdateDataGrid();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

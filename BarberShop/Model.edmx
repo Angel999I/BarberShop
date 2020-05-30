@@ -38,7 +38,7 @@
           <Property Name="customer_id" Type="int" Nullable="false" />
           <Property Name="product_id" Type="int" Nullable="false" />
           <Property Name="date" Type="date" Nullable="false" />
-          <Property Name="price" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -91,6 +91,7 @@
           <Property Name="hours" Type="float" Nullable="false" />
           <Property Name="salary" Type="float" Nullable="false" />
           <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="total" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Workers">
           <Key>
@@ -325,7 +326,7 @@
           <Property Name="customer_id" Type="Int32" Nullable="false" />
           <Property Name="product_id" Type="Int32" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="price" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="price" Type="Double" Nullable="false" />
           <NavigationProperty Name="Customer" Relationship="DatabaseModel.F_TimeTable_Customers" FromRole="Order" ToRole="Customer" />
           <NavigationProperty Name="Product" Relationship="DatabaseModel.F_SupplierOrders_Products" FromRole="Order" ToRole="Product" />
         </EntityType>
@@ -389,6 +390,7 @@
           <Property Name="hours" Type="Double" Nullable="false" />
           <Property Name="salary" Type="Double" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="total" Type="Double" Nullable="false" />
           <NavigationProperty Name="Worker" Relationship="DatabaseModel.FK_WorkerHours_Workers" FromRole="WorkerHour" ToRole="Worker" />
         </EntityType>
         <EntityType Name="Worker">
@@ -591,6 +593,7 @@
           <EntitySetMapping Name="WorkerHours">
             <EntityTypeMapping TypeName="DatabaseModel.WorkerHour">
               <MappingFragment StoreEntitySet="WorkerHours">
+                <ScalarProperty Name="total" ColumnName="total" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="salary" ColumnName="salary" />
                 <ScalarProperty Name="hours" ColumnName="hours" />

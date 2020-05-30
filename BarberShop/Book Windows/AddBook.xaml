@@ -11,14 +11,14 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="#FFFAFAFA"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
-        Title="AddBook" Height="380" Width="275">
+        Title="AddBook" Height="380" Width="275" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
     <Grid>
 
         <DatePicker x:Name="DatePicker" materialDesign:HintAssist.Hint="Pick Date"
-                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" HorizontalAlignment="Left" Margin="55,45,0,0" VerticalAlignment="Top" Width="166">
+                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" Width="168">
             <DatePicker.Resources>
                 <Style TargetType="DatePickerTextBox">
                     <Setter Property="IsReadOnly" Value="True"/>
@@ -29,18 +29,18 @@
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                       materialDesign:TextFieldAssist.SuffixText=""
-                      materialDesign:HintAssist.HelperText="Select a customer" HorizontalAlignment="Left" Margin="55,126,0,0" VerticalAlignment="Top" Width="166"/>
+                      materialDesign:HintAssist.HelperText="Select a customer" HorizontalAlignment="Center" Margin="0,122,0,0" VerticalAlignment="Top" Width="168"/>
         <materialDesign:TimePicker x:Name="TimePicker" Is24Hours="True"
 
   Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
-  materialDesign:HintAssist.Hint="" Margin="55,89,46,223" />
+  materialDesign:HintAssist.Hint="" Margin="0,75,0,0" Width="168" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <ComboBox x:Name="HaircutPicker" materialDesign:HintAssist.Hint="Haircut"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                       materialDesign:TextFieldAssist.SuffixText=""
-                      materialDesign:HintAssist.HelperText="Select a haircut" HorizontalAlignment="Left" Margin="55,179,0,0" VerticalAlignment="Top" Width="166" SelectionChanged="HaircutPickerChanged"/>
-        <TextBox x:Name="PriceTextBox" materialDesign:HintAssist.Hint="Price" Margin="55,238,46,80" />
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="61,291,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="147,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
+                      materialDesign:HintAssist.HelperText="Select a haircut" HorizontalAlignment="Center" Margin="0,182,0,0" VerticalAlignment="Top" Width="168" SelectionChanged="HaircutPickerChanged"/>
+        <TextBox x:Name="PriceTextBox" materialDesign:HintAssist.Hint="Price" Margin="0,248,0,102" Width="168" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="54,302,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="148,302,0,0" VerticalAlignment="Top" Click="CancelButton_Click" RenderTransformOrigin="0.561,0.516" />
     </Grid>
 </Window>

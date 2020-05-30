@@ -24,6 +24,8 @@ namespace BarberShop
     {       
         public MainWindow()
         {
+            ManageTimeTable window = new ManageTimeTable();
+            window.Close();
             InitializeComponent();
         }
 
@@ -66,6 +68,53 @@ namespace BarberShop
         {
             ClockWorkers window = new ClockWorkers();
             window.ShowDialog();
+        }
+        private void OrderProducts_Click(object sender, RoutedEventArgs e)
+        {
+            OrderProducts window = new OrderProducts();
+            window.ShowDialog();
+        }
+
+        private void SellProducts_Click(object sender, RoutedEventArgs e)
+        {
+            SellProduct window = new SellProduct();
+            window.ShowDialog();
+        }
+
+        private void CustomerHistory_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerHistory window = new CustomerHistory();
+            window.ShowDialog();
+        }
+        private void ReportAdditionalExpenses(object sender, RoutedEventArgs e)
+        {
+            AdditionalExpenses window = new AdditionalExpenses();
+            window.ShowDialog();
+        }
+
+        private void ExpensesReport_Click(object sender, RoutedEventArgs e)
+        {
+            ExpensesReport window = new ExpensesReport();
+            window.ShowDialog();
+        }
+
+        private void IncomeReport_Click(object sender, RoutedEventArgs e)
+        {
+            IncomesReport window = new IncomesReport();
+            window.ShowDialog();
+        }
+
+        private void DialogHost_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void Center_Click(object sender, RoutedEventArgs e)
+        {
+            Rect workArea = System.Windows.SystemParameters.WorkArea;
+            this.Left = (workArea.Width - this.Width) / 2 + workArea.Left;
+            this.Top = (workArea.Height - this.Height) / 2 + workArea.Top;
         }
     }
 }
