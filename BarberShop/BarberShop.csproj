@@ -88,7 +88,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="IncomesReport.xaml.cs">
+    <Compile Include="Reports\IncomesReport.xaml.cs">
       <DependentUpon>IncomesReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reports\ExpensesReport.xaml.cs">
@@ -188,7 +188,7 @@
     <Compile Include="Workers Windows\ManageWorkers.xaml.cs">
       <DependentUpon>ManageWorkers.xaml</DependentUpon>
     </Compile>
-    <Page Include="IncomesReport.xaml">
+    <Page Include="Reports\IncomesReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

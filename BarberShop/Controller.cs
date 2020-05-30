@@ -13,7 +13,7 @@ namespace BarberShop
     class Controller
     {
         DataModel model = new DataModel();
-        Regex r = new Regex(@"^[A-Z0-9a-z. ]{1,50}$");
+        Regex r = new Regex(@"^[A-Z0-9a-z. ,@]{1,50}$");
         public void ValidateCustomer(string name, string address)
         {
             if (!r.IsMatch(name))

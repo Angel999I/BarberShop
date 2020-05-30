@@ -116,5 +116,10 @@ namespace BarberShop
             this.Left = (workArea.Width - this.Width) / 2 + workArea.Left;
             this.Top = (workArea.Height - this.Height) / 2 + workArea.Top;
         }
+
+        private void Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
     }
 }

@@ -62,7 +62,9 @@
 
                     </MenuItem>
                 </MenuItem>
-                <MenuItem x:Name="Center" Header="Center Screen" Click="Center_Click">
+                <MenuItem x:Name="Center" Header="Center" Click="Center_Click">
+                </MenuItem>
+                <MenuItem x:Name="Minimize" Header="Minimize" Click="Minimize_Click">
                 </MenuItem>
                 <MenuItem x:Name="Exit" Header="Exit" Click="Exit_Click">
                 </MenuItem>
