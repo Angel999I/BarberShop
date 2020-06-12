@@ -43,12 +43,14 @@ namespace BarberShop
         {
             List<Customer> l1 = (List<Customer>)CustomerPicker.ItemsSource;
             List<Haircut> l2 = (List<Haircut>)HaircutPicker.ItemsSource;
+            List<Worker> l3 = (List<Worker>)WorkerPicker.ItemsSource;
             //MessageBox.Show(l1.FindIndex(x => x == t.Customer).ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             DatePicker.SelectedDate = t.date;
             TimePicker.Text = t.time.ToString();
             CustomerPicker.SelectedIndex = l1.FindIndex(x => x.Id == t.Customer.Id);
             HaircutPicker.SelectedIndex = l2.FindIndex(x => x.Id == t.Haircut.Id);
+            WorkerPicker.SelectedIndex = l3.FindIndex(x => x.Id == t.worker_id);
             PriceTextBox.Text = t.price.ToString();
         }
 
@@ -59,6 +61,9 @@ namespace BarberShop
 
             HaircutPicker.ItemsSource = controller.GetHaircuts();
             HaircutPicker.DisplayMemberPath = "name";
+
+            WorkerPicker.ItemsSource = controller.GetWorkers();
+            WorkerPicker.DisplayMemberPath = "name";
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -70,10 +75,11 @@ namespace BarberShop
                 DateTime date = (DateTime)DatePicker.SelectedDate;
                 int type = (HaircutPicker.SelectedItem as Haircut).Id;
                 int customer = (CustomerPicker.SelectedItem as Customer).Id;
+                int worker = (WorkerPicker.SelectedItem as Worker).Id;
 
 
                 if (!isEdit)
-                    controller.AddBook(price, date, type, customer, time);
+                    controller.AddBook(price, date, type, customer, time, worker);
                 else
                 {
                     t.price = price;
@@ -81,8 +87,10 @@ namespace BarberShop
                     t.date = date;
                     t.haricut_id = type;
                     t.customer_id = customer;
+                    t.worker_id = worker;
                     t.Customer = controller.GetCustomers().Find(x => x.Id == t.customer_id);
                     t.Haircut = controller.GetHaircuts().Find(x => x.Id == t.haricut_id);
+                    t.Worker = controller.GetWorkers().Find(x => x.Id == t.worker_id);
 
                     controller.EditBook(t);
                 }

@@ -13,16 +13,16 @@
         materialDesign:TextFieldAssist.HasClearButton="True"
         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
         materialDesign:TextFieldAssist.SuffixText=""
-        materialDesign:HintAssist.HelperText="Select a customer" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top" Width="168"/>
+        materialDesign:HintAssist.HelperText="Select a customer" HorizontalAlignment="Center" Margin="54,27,53,0" VerticalAlignment="Top" Width="168"/>
         <ComboBox x:Name="ProductPicker" materialDesign:HintAssist.Hint="Product"
         materialDesign:TextFieldAssist.HasClearButton="True"
         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
         materialDesign:TextFieldAssist.SuffixText=""
-        materialDesign:HintAssist.HelperText="Select a product" HorizontalAlignment="Center" Margin="0,98,0,0" VerticalAlignment="Top" Width="168"/>
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="54,291,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="148,291,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
+        materialDesign:HintAssist.HelperText="Select a product" HorizontalAlignment="Center" Margin="54,89,53,0" VerticalAlignment="Top" Width="168"/>
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="54,324,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="148,324,0,0" VerticalAlignment="Top" Click="CancelButton_Click" />
         <DatePicker x:Name="DatePicker" materialDesign:HintAssist.Hint="Pick Date"
-            HorizontalAlignment="Center" Margin="0,163,0,0" VerticalAlignment="Top" Width="168">
+            HorizontalAlignment="Center" Margin="54,154,53,0" VerticalAlignment="Top" Width="168">
             <DatePicker.Resources>
                 <Style TargetType="{x:Type DatePickerTextBox}">
                     <Setter Property="IsReadOnly" Value="True"/>
@@ -32,7 +32,12 @@
                 <StaticResource ResourceKey="MaterialDesignFloatingHintDatePicker"/>
             </DatePicker.Style>
         </DatePicker>
-        <TextBox x:Name="PriceTextBox" materialDesign:HintAssist.Hint="Price" Margin="54,218,53,132" Width="168" />
+        <TextBox x:Name="PriceTextBox" materialDesign:HintAssist.Hint="Price" Margin="54,209,53,141" Width="168" />
+        <ComboBox x:Name="WorkerPicker" materialDesign:HintAssist.Hint="Worker"
+            materialDesign:TextFieldAssist.HasClearButton="True"
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+            materialDesign:TextFieldAssist.SuffixText=""
+            materialDesign:HintAssist.HelperText="Select a worker" HorizontalAlignment="Center" Margin="54,244,53,0" VerticalAlignment="Top" Width="168"/>
 
     </Grid>
 </Window>

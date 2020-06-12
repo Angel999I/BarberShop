@@ -33,6 +33,7 @@
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Customer.name}" Header="Customer"/>
+                <DataGridTextColumn Binding="{Binding Worker.name}" Header="Worker"/>
                 <DataGridTextColumn Binding="{Binding Product.name}" Header="Product"/>
                 <DataGridTextColumn Binding="{Binding date, StringFormat=d}" Header="Date"/>
                 <DataGridTextColumn Binding="{Binding price}" Header="Price"/>

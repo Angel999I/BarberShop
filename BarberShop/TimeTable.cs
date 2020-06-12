@@ -20,8 +20,10 @@ namespace BarberShop
         public int haricut_id { get; set; }
         public double price { get; set; }
         public System.TimeSpan time { get; set; }
+        public int worker_id { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Haircut Haircut { get; set; }
+        public virtual Worker Worker { get; set; }
     }
 }

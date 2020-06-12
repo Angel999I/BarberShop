@@ -42,9 +42,11 @@ namespace BarberShop
         {
             List<Customer> l1 = (List<Customer>)CustomerPicker.ItemsSource;
             List<Product> l2 = (List<Product>)ProductPicker.ItemsSource;
+            List<Worker> l3 = (List<Worker>)WorkerPicker.ItemsSource;
 
             CustomerPicker.SelectedIndex = l1.FindIndex(x => x.Id == o.Customer.Id);
             ProductPicker.SelectedIndex = l2.FindIndex(x => x.Id == o.Product.Id);
+            WorkerPicker.SelectedIndex = l3.FindIndex(x => x.Id == o.Worker.Id);
             DatePicker.SelectedDate = o.date;
             PriceTextBox.Text = o.price.ToString();
         }
@@ -56,6 +58,9 @@ namespace BarberShop
 
             ProductPicker.ItemsSource = controller.GetProducts();
             ProductPicker.DisplayMemberPath = "name";
+
+            WorkerPicker.ItemsSource = controller.GetWorkers();
+            WorkerPicker.DisplayMemberPath = "name";
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -69,19 +74,22 @@ namespace BarberShop
             {
                 int customer = (CustomerPicker.SelectedItem as Customer).Id;
                 int product = (ProductPicker.SelectedItem as Product).Id;
+                int worker = (WorkerPicker.SelectedItem as Worker).Id;
                 DateTime date = (DateTime)DatePicker.SelectedDate;
                 double price = double.Parse(PriceTextBox.Text);
 
                 if (!isEdit)
-                    controller.AddOrder(customer, product, date, price);
+                    controller.AddOrder(customer, product, date, price, worker);
                 else
                 {
                     o.customer_id = customer;
                     o.product_id = product;
+                    o.worker_id = worker;
                     o.date = date;
                     o.price = price;
                     o.Customer = controller.GetCustomers().Find(x => x.Id == o.customer_id);
                     o.Product = controller.GetProducts().Find(x => x.Id == o.product_id);
+                    o.Worker = controller.GetWorkers().Find(x => x.Id == o.worker_id);
 
                     controller.EditOrder(o);
                 }

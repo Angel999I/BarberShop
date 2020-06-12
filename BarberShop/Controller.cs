@@ -126,7 +126,7 @@ namespace BarberShop
             model.AddSupplier(s);
         }
 
-        public void AddBook(double money, DateTime date, int type, int customer, TimeSpan time)
+        public void AddBook(double money, DateTime date, int type, int customer, TimeSpan time, int worker)
         {           
             ValidateBook(money);
 
@@ -136,6 +136,7 @@ namespace BarberShop
             t.haricut_id = type;
             t.price = money;
             t.time = time;
+            t.worker_id = worker;
 
             model.AddBook(t);
         }
@@ -193,13 +194,14 @@ namespace BarberShop
             model.AddSupplierOrder(s);
         }
 
-        public void AddOrder(int customer, int product, DateTime date, double price)
+        public void AddOrder(int customer, int product, DateTime date, double price, int worker)
         {
             ValidateOrder(price);
 
             Order o = new Order();
             o.customer_id = customer;
             o.product_id = product;
+            o.worker_id = worker;
             o.date = date;
             o.price = price;
 

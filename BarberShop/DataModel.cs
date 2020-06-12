@@ -23,6 +23,8 @@ namespace BarberShop
                 update.time = t.time;
                 update.Customer = t.Customer;
                 update.Haircut = t.Haircut;
+                update.worker_id = t.worker_id;
+                update.Worker = t.Worker;
             }
 
 
@@ -123,8 +125,10 @@ namespace BarberShop
             {
                 update.customer_id = r.customer_id;
                 update.product_id = r.product_id;
+                update.worker_id = r.worker_id;
                 update.Customer = r.Customer;
                 update.Product = r.Product;
+                update.Worker = r.Worker;
                 update.date = r.date;
                 update.price = r.price;
             }

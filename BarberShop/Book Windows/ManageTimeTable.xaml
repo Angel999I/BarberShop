@@ -19,6 +19,7 @@
         <DataGrid x:Name="TimeTableDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="332" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750" Background="White">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Customer.name}" Header="Customer"/>
+                <DataGridTextColumn Binding="{Binding Worker.name}" Header="Worker"/>
                 <DataGridTextColumn Binding="{Binding date, StringFormat=d}" Header="Date"/>
                 <DataGridTextColumn Binding="{Binding Haircut.name}" Header="Haircut"/>
                 <DataGridTextColumn Binding="{Binding price}" Header="Price"/>
