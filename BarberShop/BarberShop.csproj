@@ -88,10 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddHaircut.xaml.cs">
+    <Compile Include="Book Windows\AddHaircut.xaml.cs">
       <DependentUpon>AddHaircut.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManageHaircuts.xaml.cs">
+    <Compile Include="Book Windows\ManageHaircuts.xaml.cs">
       <DependentUpon>ManageHaircuts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reports\IncomesReport.xaml.cs">
@@ -194,11 +194,11 @@
     <Compile Include="Workers Windows\ManageWorkers.xaml.cs">
       <DependentUpon>ManageWorkers.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddHaircut.xaml">
+    <Page Include="Book Windows\AddHaircut.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ManageHaircuts.xaml">
+    <Page Include="Book Windows\ManageHaircuts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
