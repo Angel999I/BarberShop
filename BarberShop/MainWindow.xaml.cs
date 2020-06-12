@@ -104,6 +104,12 @@ namespace BarberShop
             window.ShowDialog();
         }
 
+        private void ManageHaircuts_Click(object sender, RoutedEventArgs e)
+        {
+            ManageHaircuts w = new ManageHaircuts();
+            w.ShowDialog();
+        }
+
         private void DialogHost_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -121,5 +127,6 @@ namespace BarberShop
         {
             WindowState = WindowState.Minimized;
         }
+
     }
 }

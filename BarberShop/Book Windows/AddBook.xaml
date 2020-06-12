@@ -38,14 +38,14 @@
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                       materialDesign:TextFieldAssist.SuffixText=""
-                      materialDesign:HintAssist.HelperText="Select a haircut" HorizontalAlignment="Center" Margin="0,182,0,0" VerticalAlignment="Top" Width="168" SelectionChanged="HaircutPickerChanged"/>
-        <TextBox x:Name="PriceTextBox" materialDesign:HintAssist.Hint="Price" Margin="0,248,0,102" Width="168" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                      materialDesign:HintAssist.HelperText="Select a haircut" HorizontalAlignment="Center" Margin="0,182,0,0" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="PriceTextBox" materialDesign:HintAssist.Hint="Discount %" Margin="0,248,0,102" Width="168" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="54,338,0,0" VerticalAlignment="Top" Click="AddButton_Click"/>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="148,338,0,0" VerticalAlignment="Top" Click="CancelButton_Click" RenderTransformOrigin="0.561,0.516" />
         <ComboBox x:Name="WorkerPicker" materialDesign:HintAssist.Hint="Worker"
             materialDesign:TextFieldAssist.HasClearButton="True"
             Style="{StaticResource MaterialDesignFloatingHintComboBox}"
             materialDesign:TextFieldAssist.SuffixText=""
-            materialDesign:HintAssist.HelperText="Select a worker" HorizontalAlignment="Center" Margin="54,278,53,0" VerticalAlignment="Top" Width="168" SelectionChanged="HaircutPickerChanged"/>
+            materialDesign:HintAssist.HelperText="Select a worker" HorizontalAlignment="Center" Margin="54,278,53,0" VerticalAlignment="Top" Width="168"/>
     </Grid>
 </Window>

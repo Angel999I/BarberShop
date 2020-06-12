@@ -104,6 +104,15 @@ namespace BarberShop
                 throw new System.ArgumentException("Description is too long or invalid");
         }
 
+        public void ValidateHaircut(string name, double price)
+        {
+            if (price < 0 || price > double.MaxValue)
+                throw new System.ArgumentException("Cost number is too large or negetive");
+
+            if (!r.IsMatch(name))
+                throw new System.ArgumentException("Name is too long or invalid");
+        }
+
         public void AddCustomer(string name, string address)
         {
             ValidateCustomer(name, address);
@@ -220,6 +229,17 @@ namespace BarberShop
             model.AddAdditionalCost(a);
         }
 
+        public void AddHaircut(string name, double price)
+        {
+            ValidateHaircut(name, price);
+
+            Haircut h = new Haircut();
+            h.name = name;
+            h.price = price;
+
+            model.AddHaircut(h);
+        }
+
         public void EditBook(TimeTable t)
         {
             ValidateBook(t.price);
@@ -281,6 +301,13 @@ namespace BarberShop
             ValidateAdditionalCost(a.cost, a.description);
 
             model.EditAdditionalCost(a);
+        }
+
+        public void EditHaircut(Haircut h)
+        {
+            ValidateHaircut(h.name, h.price);
+
+            model.EditHaircut(h);
         }
 
         public List<Customer> GetCustomers()
@@ -375,6 +402,11 @@ namespace BarberShop
         public void DeleteAdditionalCosts(AdditionalCost a)
         {
             model.DeleteAdditionalCost(a);
+        }
+
+        public void DeleteHaircut(Haircut h)
+        {
+            model.DeleteHaircut(h);
         }
 
     }

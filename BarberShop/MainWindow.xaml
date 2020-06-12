@@ -23,6 +23,7 @@
                             <materialDesign:PackIcon Kind="CalendarClock" />
                         </MenuItem.Icon>
                     </MenuItem>
+                    <MenuItem Header="Manage Haircuts" Click="ManageHaircuts_Click"/>
                     <MenuItem Header="Sell Products" Click="SellProducts_Click">
 
                     </MenuItem>

@@ -51,7 +51,7 @@ namespace BarberShop
             CustomerPicker.SelectedIndex = l1.FindIndex(x => x.Id == t.Customer.Id);
             HaircutPicker.SelectedIndex = l2.FindIndex(x => x.Id == t.Haircut.Id);
             WorkerPicker.SelectedIndex = l3.FindIndex(x => x.Id == t.worker_id);
-            PriceTextBox.Text = t.price.ToString();
+            PriceTextBox.Text = (((t.Haircut.price - t.price) / t.Haircut.price)*100).ToString();
         }
 
         private void SetComboBox()
@@ -70,22 +70,22 @@ namespace BarberShop
         {
             try
             {
-                double price = double.Parse(PriceTextBox.Text);
+                double discount = (double.Parse(PriceTextBox.Text))/100;
                 TimeSpan time = TimeSpan.Parse(TimePicker.Text);
                 DateTime date = (DateTime)DatePicker.SelectedDate;
-                int type = (HaircutPicker.SelectedItem as Haircut).Id;
+                Haircut type = (HaircutPicker.SelectedItem as Haircut);
                 int customer = (CustomerPicker.SelectedItem as Customer).Id;
                 int worker = (WorkerPicker.SelectedItem as Worker).Id;
 
 
                 if (!isEdit)
-                    controller.AddBook(price, date, type, customer, time, worker);
+                    controller.AddBook(type.price - (type.price * discount), date, type.Id, customer, time, worker);
                 else
                 {
-                    t.price = price;
+                    t.price = type.price - (type.price * discount);
                     t.time = time;
                     t.date = date;
-                    t.haricut_id = type;
+                    t.haricut_id = type.Id;
                     t.customer_id = customer;
                     t.worker_id = worker;
                     t.Customer = controller.GetCustomers().Find(x => x.Id == t.customer_id);
@@ -114,12 +114,6 @@ namespace BarberShop
                 MessageBox.Show("Ensure that the selection boxes are not empty", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             
-        }
-
-        private void HaircutPickerChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Haircut h = (Haircut)HaircutPicker.SelectedItem;
-            PriceTextBox.Text = h.price.ToString();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

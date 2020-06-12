@@ -1,0 +1,41 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShop"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="BarberShop.ManageHaircuts"
+        mc:Ignorable="d"
+        Title="ManageHaircuts" Height="450" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <DataGrid x:Name="HaircutDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Height="332" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="750" Background="White">
+            <DataGrid.Resources>
+                <ContextMenu x:Key="DataRowContextMenu">
+                    <MenuItem Header="Remove" Click="DeleteHaircut_Click">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="UserRemove" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Edit" Click="EditHaircut_Click">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="AccountEditOutline"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding name}" Header="Name"/>
+                <DataGridTextColumn Binding="{Binding price}" Header="Price"/>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="ContextMenu" Value="{StaticResource DataRowContextMenu}" />
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <Button x:Name="NewHaircutButton" Content="New" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="NewHaircutButton_Click" RenderTransformOrigin="-4.163,0.444"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="685,10,0,0" VerticalAlignment="Top" Click="CancelButton_Click" RenderTransformOrigin="0.561,0.516" Width="75" />
+
+    </Grid>
+</Window>

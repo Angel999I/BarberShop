@@ -28,18 +28,25 @@ namespace BarberShop
 
         private void UpdateDataGrid(object sender, SelectionChangedEventArgs e)
         {
-            if (DatePicker.SelectedDate == null)
+            try
             {
-                BookDataGrid.ItemsSource = controller.GetTimeTable();
-                OrderDataGrid.ItemsSource = controller.GetOrders();
-            }
-            else
-            {
-                BookDataGrid.ItemsSource = controller.GetTimeTable().FindAll(x => DateTime.Compare(x.date, (DateTime)DatePicker.SelectedDate) >= 0);
-                OrderDataGrid.ItemsSource = controller.GetOrders().FindAll(x => DateTime.Compare(x.date, (DateTime)DatePicker.SelectedDate) >= 0);
-            }
+                if (DatePicker.SelectedDate == null)
+                {
+                    BookDataGrid.ItemsSource = controller.GetTimeTable();
+                    OrderDataGrid.ItemsSource = controller.GetOrders();
+                }
+                else
+                {
+                    BookDataGrid.ItemsSource = controller.GetTimeTable().FindAll(x => DateTime.Compare(x.date, (DateTime)DatePicker.SelectedDate) >= 0);
+                    OrderDataGrid.ItemsSource = controller.GetOrders().FindAll(x => DateTime.Compare(x.date, (DateTime)DatePicker.SelectedDate) >= 0);
+                }
 
-            TotalCost.Content = "Income: " + (((List<TimeTable>)BookDataGrid.ItemsSource).Sum(x => x.price) + ((List<Order>)OrderDataGrid.ItemsSource).Sum(x => x.price)).ToString();
+                TotalCost.Content = "Income: " + (((List<TimeTable>)BookDataGrid.ItemsSource).Sum(x => x.price) + ((List<Order>)OrderDataGrid.ItemsSource).Sum(x => x.price)).ToString();
+            }
+            catch
+            {
+                return;
+            }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

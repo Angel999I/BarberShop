@@ -45,7 +45,15 @@ namespace BarberShop
         private void DatePicker_CalendarClosed(object sender, RoutedEventArgs e)
         {
             List<TimeTable> l = controller.GetTimeTable();
-            DateTime date = (DateTime)DatePicker.SelectedDate;
+            DateTime date;
+            try
+            {
+                date = (DateTime)DatePicker.SelectedDate;
+            }
+            catch
+            {
+                return;
+            }
             for(int i =0; i < l.Count;)
             {
                 if (DateTime.Compare(date, l[i].date) > 0)

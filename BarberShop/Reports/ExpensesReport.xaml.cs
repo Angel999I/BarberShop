@@ -28,24 +28,31 @@ namespace BarberShop
 
         private void UpdateDataGrid(object sender, SelectionChangedEventArgs e)
         {
-            if (DatePicker.SelectedDate == null)
+            try
             {
-                OrderDataGrid.ItemsSource = controller.GetSupplierOrders();
-                AdditionalExpenseDataGrid.ItemsSource = controller.GetAdditionalCosts();
-                WorkerHoursDataGrid.ItemsSource = controller.GetWorkerHours();
+                if (DatePicker.SelectedDate == null)
+                {
+                    OrderDataGrid.ItemsSource = controller.GetSupplierOrders();
+                    AdditionalExpenseDataGrid.ItemsSource = controller.GetAdditionalCosts();
+                    WorkerHoursDataGrid.ItemsSource = controller.GetWorkerHours();
+                }
+                else
+                {
+                    OrderDataGrid.ItemsSource = controller.GetSupplierOrders().FindAll(x => DateTime.Compare(x.date, (DateTime)DatePicker.SelectedDate) >= 0);
+                    AdditionalExpenseDataGrid.ItemsSource = controller.GetAdditionalCosts().FindAll(x => DateTime.Compare(x.date, (DateTime)DatePicker.SelectedDate) >= 0);
+                    WorkerHoursDataGrid.ItemsSource = controller.GetWorkerHours().FindAll(x => DateTime.Compare(x.date, (DateTime)DatePicker.SelectedDate) >= 0);
+                }
+
+                List<WorkerHour> l1 = (List<WorkerHour>)WorkerHoursDataGrid.ItemsSource;
+                List<AdditionalCost> l2 = (List<AdditionalCost>)AdditionalExpenseDataGrid.ItemsSource;
+                List<SupplierOrder> l3 = (List<SupplierOrder>)OrderDataGrid.ItemsSource;
+
+                TotalCost.Content = "Total Cost: " + (l1.Sum(x => x.total) + l2.Sum(x => x.cost) + l3.Sum(x => x.price)).ToString();
             }
-            else
+            catch
             {
-                OrderDataGrid.ItemsSource = controller.GetSupplierOrders().FindAll(x=> DateTime.Compare(x.date, (DateTime)DatePicker.SelectedDate) >= 0);
-                AdditionalExpenseDataGrid.ItemsSource = controller.GetAdditionalCosts().FindAll(x => DateTime.Compare(x.date, (DateTime)DatePicker.SelectedDate) >= 0);
-                WorkerHoursDataGrid.ItemsSource = controller.GetWorkerHours().FindAll(x => DateTime.Compare(x.date, (DateTime)DatePicker.SelectedDate) >= 0);
+                return;
             }
-
-            List<WorkerHour> l1 = (List<WorkerHour>)WorkerHoursDataGrid.ItemsSource;
-            List<AdditionalCost> l2 = (List<AdditionalCost>)AdditionalExpenseDataGrid.ItemsSource;
-            List<SupplierOrder> l3 = (List<SupplierOrder>)OrderDataGrid.ItemsSource;
-
-            TotalCost.Content = "Total Cost: " + (l1.Sum(x => x.total) + l2.Sum(x => x.cost) + l3.Sum(x => x.price)).ToString();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

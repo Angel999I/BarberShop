@@ -149,6 +149,18 @@ namespace BarberShop
             db.SaveChanges();
         }
 
+        public void EditHaircut(Haircut h)
+        {
+            var update = db.Haircuts.Where(o => o.Id == h.Id).FirstOrDefault();
+            if (update != null)
+            {
+                update.name = h.name;
+                update.price = h.price;
+            }
+
+            db.SaveChanges();
+        }
+
         public void AddBook(TimeTable t)
         {
             db.TimeTables.Add(t);
@@ -208,6 +220,13 @@ namespace BarberShop
         public void AddAdditionalCost(AdditionalCost a)
         {
             db.AdditionalCosts.Add(a);
+
+            db.SaveChanges();
+        }
+
+        public void AddHaircut(Haircut h)
+        {
+            db.Haircuts.Add(h);
 
             db.SaveChanges();
         }
@@ -325,6 +344,13 @@ namespace BarberShop
         public void DeleteAdditionalCost(AdditionalCost a)
         {
             db.AdditionalCosts.Remove(a);
+
+            db.SaveChanges();
+        }
+
+        public void DeleteHaircut(Haircut h)
+        {
+            db.Haircuts.Remove(h);
 
             db.SaveChanges();
         }
